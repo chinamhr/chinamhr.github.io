@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E9%9B%86%E5%90%88(3)/</loc>
+    
+    <lastmod>2018-05-06T14:00:50.800Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E7%BA%BF%E7%A8%8B%E6%B1%A0(2)ForkJoinPool/</loc>
     
     <lastmod>2018-05-06T13:47:22.088Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E7%BA%BF%E7%A8%8B%E6%B1%A0(1)ThreadPoolExecutor/</loc>
     
     <lastmod>2018-05-06T04:08:58.977Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E9%9B%86%E5%90%88(3)/</loc>
-    
-    <lastmod>2018-05-05T12:27:19.333Z</lastmod>
     
   </url>
   

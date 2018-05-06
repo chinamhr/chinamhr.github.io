@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/06/JUC源码/JUC集合(3)/">JUC集合</a>
+      <a class="article-title" href="/2018/05/06/JUC源码/JUC集合(3)/">JUC集合(3)</a>
     </h1>
   
 
@@ -87,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JUC集合"><a href="#JUC集合" class="headerlink" title="JUC集合"></a>JUC集合</h2><h3 id="一、CopyOnWriteArrayList"><a href="#一、CopyOnWriteArrayList" class="headerlink" title="一、CopyOnWriteArrayList"></a>一、CopyOnWriteArrayList</h3><h4 id="1、实例化CopyOnWriteArrayList"><a href="#1、实例化CopyOnWriteArrayList" class="headerlink" title="1、实例化CopyOnWriteArrayList"></a>1、实例化CopyOnWriteArrayList</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public CopyOnWriteArrayList() &#123;</span><br><span class="line">    setArray(new Object[0]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="JUC集合-3"><a href="#JUC集合-3" class="headerlink" title="JUC集合(3)"></a>JUC集合(3)</h2><h3 id="一、CopyOnWriteArrayList"><a href="#一、CopyOnWriteArrayList" class="headerlink" title="一、CopyOnWriteArrayList"></a>一、CopyOnWriteArrayList</h3><h4 id="1、实例化CopyOnWriteArrayList"><a href="#1、实例化CopyOnWriteArrayList" class="headerlink" title="1、实例化CopyOnWriteArrayList"></a>1、实例化CopyOnWriteArrayList</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public CopyOnWriteArrayList() &#123;</span><br><span class="line">    setArray(new Object[0]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">final void setArray(Object[] a) &#123;</span><br><span class="line">    array = a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//存放该list数据的数组，volatile修饰数组，代表该数组地址的可见性，</span><br><span class="line">//也即一个线程给该数组从新赋值，另一个线程能立即看到，但是数组内部成员改变不具有该性质。</span><br><span class="line">private transient volatile Object[] array;</span><br><span class="line">//该对象内部保证线程安全的独占锁</span><br><span class="line">final transient ReentrantLock lock = new ReentrantLock();</span><br></pre></td></tr></table></figure>
 <h4 id="2、CopyOnWriteArrayList的add方法"><a href="#2、CopyOnWriteArrayList的add方法" class="headerlink" title="2、CopyOnWriteArrayList的add方法"></a>2、CopyOnWriteArrayList的add方法</h4><p>添加元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public boolean add(E e) &#123;</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    //获取锁</span><br><span class="line">    lock.lock();</span><br><span class="line">    try &#123;</span><br><span class="line">        //获取数组</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        int len = elements.length;</span><br><span class="line">        //新数组</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + 1);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        //更新数组</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -161,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC集合(3)/" data-id="cjguvu64w0007xguet6kpya3i" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC集合(3)/" data-id="cjguvy36n0008ioued59qitl0" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -222,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC集合(2)ConcurrentSkipListMap/" data-id="cjguvu64x0008xgue3nvppgrh" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC集合(2)ConcurrentSkipListMap/" data-id="cjguvy36j0005ioue2rrj3p2g" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -291,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC集合(1)ConcurrentHashMap/" data-id="cjguvu64t0005xguejx12n8zk" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC集合(1)ConcurrentHashMap/" data-id="cjguvy36m0007iouevye1ltna" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -405,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC锁/" data-id="cjguvu64s0004xguep6m653i8" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC锁/" data-id="cjguvy36i0004ioue7frmq4bh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -474,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC线程池(2)ForkJoinPool/" data-id="cjguvu64r0003xgueeiqo2rj0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC线程池(2)ForkJoinPool/" data-id="cjguvy36g0003ioueezky3drh" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -539,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC线程池(1)ThreadPoolExecutor/" data-id="cjguvu64m0001xguehgq9rou1" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC线程池(1)ThreadPoolExecutor/" data-id="cjguvy36c0001iouevuoyukc4" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -600,7 +600,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC原子类 /" data-id="cjguvu64h0000xguectfdy29w" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/05/06/JUC源码/JUC原子类 /" data-id="cjguvy3670000ioue1y2iyhd2" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -685,7 +685,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/20/mybatis3源码/mybatis源码配置文件加载过程/" data-id="cjguvu651000dxguer7awjztc" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/20/mybatis3源码/mybatis源码配置文件加载过程/" data-id="cjguvy36t000giouejfkulg8e" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -801,7 +801,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/20/mybatis3源码/mybatis源码sql执行过程（2）/" data-id="cjguvu64z000bxguezudsro80" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/20/mybatis3源码/mybatis源码sql执行过程（2）/" data-id="cjguvy36r000dioue5dbpl3jd" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -924,7 +924,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/20/mybatis3源码/mybatis源码sql执行过程（1）/" data-id="cjguvu65j000vxguedajqlaun" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/04/20/mybatis3源码/mybatis源码sql执行过程（1）/" data-id="cjguvy37d000uiouenl6lzpl1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -977,7 +977,7 @@
       <ul>
         
           <li>
-            <a href="/2018/05/06/JUC源码/JUC集合(3)/">JUC集合</a>
+            <a href="/2018/05/06/JUC源码/JUC集合(3)/">JUC集合(3)</a>
           </li>
         
           <li>
