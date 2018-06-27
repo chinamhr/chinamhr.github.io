@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+
+
 
   
-  <title>zookeeper源码分布式服务端（1） | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="zookeeper源码分布服务端（1） 服务端启动过程一、LEADER选举过程1、QuorumPeerMain的runFromConfig方法分布式zookeeper启动入口为QuorumPeerMain的main方法，之后调用了runFromConfig方法1234567891011121314151617181920212223242526272829303132333435363738394">
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="zookeeper源码分布服务端（1） 服务端启动过程一、LEADER选举过程1、QuorumPeerMain的runFromConfig方法分布式zookeeper启动入口为QuorumPeerMain的main方法，之后调用了runFromConfig方法1234567891011121314151617181920212223242526272829303132333435363738394">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zookeeper源码分布式服务端（1）">
 <meta property="og:url" content="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（1）/index.html">
@@ -17,77 +91,236 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zookeeper源码分布式服务端（1）">
 <meta name="twitter:description" content="zookeeper源码分布服务端（1） 服务端启动过程一、LEADER选举过程1、QuorumPeerMain的runFromConfig方法分布式zookeeper启动入口为QuorumPeerMain的main方法，之后调用了runFromConfig方法1234567891011121314151617181920212223242526272829303132333435363738394">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（1）/"/>
+
+
+
+
+
+  <title>zookeeper源码分布式服务端（1） | Hexo</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-zookeeper源码/zookeeper源码分布式服务端（1）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（1）/" class="article-date">
-  <time datetime="2018-04-07T04:44:43.467Z" itemprop="datePublished">2018-04-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/zookeeper/">zookeeper</a>
+        <p class="site-subtitle"></p>
+      
   </div>
 
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      zookeeper源码分布式服务端（1）
-    </h1>
+</div>
+
+<nav class="site-nav">
   
 
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（1）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">zookeeper源码分布式服务端（1）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T12:44:43+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/zookeeper/" itemprop="url" rel="index">
+                    <span itemprop="name">zookeeper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h2 id="zookeeper源码分布服务端（1）-服务端启动过程"><a href="#zookeeper源码分布服务端（1）-服务端启动过程" class="headerlink" title="zookeeper源码分布服务端（1） 服务端启动过程"></a>zookeeper源码分布服务端（1） 服务端启动过程</h2><h3 id="一、LEADER选举过程"><a href="#一、LEADER选举过程" class="headerlink" title="一、LEADER选举过程"></a>一、LEADER选举过程</h3><h4 id="1、QuorumPeerMain的runFromConfig方法"><a href="#1、QuorumPeerMain的runFromConfig方法" class="headerlink" title="1、QuorumPeerMain的runFromConfig方法"></a>1、QuorumPeerMain的runFromConfig方法</h4><p>分布式zookeeper启动入口为QuorumPeerMain的main方法，之后调用了runFromConfig方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">public void runFromConfig(QuorumPeerConfig config)</span><br><span class="line">        throws IOException, AdminServerException</span><br><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  try &#123;</span><br><span class="line">      ServerCnxnFactory cnxnFactory = null;</span><br><span class="line">      ServerCnxnFactory secureCnxnFactory = null;</span><br><span class="line">      //创建连接工厂与单机版相同</span><br><span class="line">      if (config.getClientPortAddress() != null) &#123;</span><br><span class="line">          cnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">          cnxnFactory.configure(config.getClientPortAddress(),</span><br><span class="line">                  config.getMaxClientCnxns(),</span><br><span class="line">                  false);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (config.getSecureClientPortAddress() != null) &#123;</span><br><span class="line">          secureCnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">          secureCnxnFactory.configure(config.getSecureClientPortAddress(),</span><br><span class="line">                  config.getMaxClientCnxns(),</span><br><span class="line">                  true);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      quorumPeer = getQuorumPeer();</span><br><span class="line">      //设置日志及快照文件</span><br><span class="line">      quorumPeer.setTxnFactory(new FileTxnSnapLog(</span><br><span class="line">                  config.getDataLogDir(),</span><br><span class="line">                  config.getDataDir()));</span><br><span class="line">      quorumPeer.enableLocalSessions(config.areLocalSessionsEnabled());</span><br><span class="line">      quorumPeer.enableLocalSessionsUpgrading(</span><br><span class="line">          config.isLocalSessionsUpgradingEnabled());</span><br><span class="line">      //集群机器地址</span><br><span class="line">      quorumPeer.setQuorumPeers(config.getAllMembers());</span><br><span class="line">      //leader选择器类型</span><br><span class="line">      quorumPeer.setElectionType(config.getElectionAlg());</span><br><span class="line">      //本机的集群编号</span><br><span class="line">      quorumPeer.setMyid(config.getServerId());</span><br><span class="line">      //服务器单位时间</span><br><span class="line">      quorumPeer.setTickTime(config.getTickTime());</span><br><span class="line">      quorumPeer.setMinSessionTimeout(config.getMinSessionTimeout());</span><br><span class="line">      quorumPeer.setMaxSessionTimeout(config.getMaxSessionTimeout());</span><br><span class="line">      //LF初始通信时限</span><br><span class="line">      quorumPeer.setInitLimit(config.getInitLimit());</span><br><span class="line">      //LF同步通信时限</span><br><span class="line">      quorumPeer.setSyncLimit(config.getSyncLimit());</span><br><span class="line">      quorumPeer.setConfigFileName(config.getConfigFilename());</span><br><span class="line">      //内存数据</span><br><span class="line">      quorumPeer.setZKDatabase(new ZKDatabase(quorumPeer.getTxnFactory()));</span><br><span class="line">      //投票决定方式，默认超过半数就通过  </span><br><span class="line">      quorumPeer.setQuorumVerifier(config.getQuorumVerifier(), false);</span><br><span class="line">      if (config.getLastSeenQuorumVerifier()!=null) &#123;</span><br><span class="line">          quorumPeer.setLastSeenQuorumVerifier(config.getLastSeenQuorumVerifier(), false);</span><br><span class="line">      &#125;</span><br><span class="line">      quorumPeer.initConfigInZKDatabase();</span><br><span class="line">      //设置连接工厂</span><br><span class="line">      quorumPeer.setCnxnFactory(cnxnFactory);</span><br><span class="line">      quorumPeer.setSecureCnxnFactory(secureCnxnFactory);</span><br><span class="line">      quorumPeer.setLearnerType(config.getPeerType());</span><br><span class="line">      quorumPeer.setSyncEnabled(config.getSyncEnabled());</span><br><span class="line">      quorumPeer.setQuorumListenOnAllIPs(config.getQuorumListenOnAllIPs());</span><br><span class="line"></span><br><span class="line">      // sets quorum sasl authentication configurations</span><br><span class="line">      quorumPeer.setQuorumSaslEnabled(config.quorumEnableSasl);</span><br><span class="line">      if(quorumPeer.isQuorumSaslAuthEnabled())&#123;</span><br><span class="line">          quorumPeer.setQuorumServerSaslRequired(config.quorumServerRequireSasl);</span><br><span class="line">          quorumPeer.setQuorumLearnerSaslRequired(config.quorumLearnerRequireSasl);</span><br><span class="line">          quorumPeer.setQuorumServicePrincipal(config.quorumServicePrincipal);</span><br><span class="line">          quorumPeer.setQuorumServerLoginContext(config.quorumServerLoginContext);</span><br><span class="line">          quorumPeer.setQuorumLearnerLoginContext(config.quorumLearnerLoginContext);</span><br><span class="line">      &#125;</span><br><span class="line">      quorumPeer.setQuorumCnxnThreadsSize(config.quorumCnxnThreadsSize);</span><br><span class="line">      quorumPeer.initialize();</span><br><span class="line">      //启动主线程 </span><br><span class="line">      quorumPeer.start();</span><br><span class="line">      quorumPeer.join();</span><br><span class="line">  &#125; catch (InterruptedException e) &#123;</span><br><span class="line">      // warn, but generally this is ok</span><br><span class="line">      LOG.warn(&quot;Quorum Peer interrupted&quot;, e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="2、QuorumPeer的start方法"><a href="#2、QuorumPeer的start方法" class="headerlink" title="2、QuorumPeer的start方法"></a>2、QuorumPeer的start方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void start() &#123;</span><br><span class="line">    if (!getView().containsKey(myid)) &#123;</span><br><span class="line">        throw new RuntimeException(&quot;My id &quot; + myid + &quot; not in the peer list&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //恢复本机数据</span><br><span class="line">    loadDataBase();</span><br><span class="line">    //启动连接工厂</span><br><span class="line">    startServerCnxnFactory();</span><br><span class="line">    try &#123;</span><br><span class="line">        //内嵌的管理控制台是通过jetty启动,占用8080 端口</span><br><span class="line">        adminServer.start();</span><br><span class="line">    &#125; catch (AdminServerException e) &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    //开始投票</span><br><span class="line">    startLeaderElection();</span><br><span class="line">    //主流程</span><br><span class="line">    super.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -133,129 +366,373 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（1）/" data-id="cjix786ly001hboueh723xhdb" class="article-share-link">Compartir</a>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/21/helloworld/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（2）/" rel="prev" title="zookeeper源码分布式服务端（2）">
+                zookeeper源码分布式服务端（2） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
       
       
     </footer>
   </div>
   
-    
-<nav id="article-nav">
   
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（2）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nuevo</strong>
-      <div class="article-nav-title">
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
         
-          zookeeper源码分布式服务端（2）
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper源码分布服务端（1）-服务端启动过程"><span class="nav-number">1.</span> <span class="nav-text">zookeeper源码分布服务端（1） 服务端启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、LEADER选举过程"><span class="nav-number">1.1.</span> <span class="nav-text">一、LEADER选举过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、QuorumPeerMain的runFromConfig方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、QuorumPeerMain的runFromConfig方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、QuorumPeer的start方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、QuorumPeer的start方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、QuorumPeer的startLeaderElection方法"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、QuorumPeer的startLeaderElection方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、QuorumPeer的createElectionAlgorithm方法"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、QuorumPeer的createElectionAlgorithm方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、实例化QuorumCnxManager"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、实例化QuorumCnxManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、接（一、4）Listener的run方法"><span class="nav-number">1.1.6.</span> <span class="nav-text">6、接（一、4）Listener的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、Listener的receiveConnection方法"><span class="nav-number">1.1.7.</span> <span class="nav-text">7、Listener的receiveConnection方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、Listener的handleConnection方法"><span class="nav-number">1.1.8.</span> <span class="nav-text">8、Listener的handleConnection方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、Listener的connectOne方法"><span class="nav-number">1.1.9.</span> <span class="nav-text">9、Listener的connectOne方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、Listener的startConnection方法"><span class="nav-number">1.1.10.</span> <span class="nav-text">10、Listener的startConnection方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、SendWorker的run方法"><span class="nav-number">1.1.11.</span> <span class="nav-text">11、SendWorker的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、接（一、10）RecvWorker的run方法"><span class="nav-number">1.1.12.</span> <span class="nav-text">12、接（一、10）RecvWorker的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、接（一、4）FastLeaderElection实例化"><span class="nav-number">1.1.13.</span> <span class="nav-text">13、接（一、4）FastLeaderElection实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、FastLeaderElection的starter方法"><span class="nav-number">1.1.14.</span> <span class="nav-text">14、FastLeaderElection的starter方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、Messenger的start方法"><span class="nav-number">1.1.15.</span> <span class="nav-text">15、Messenger的start方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、WorkerSender的run方法"><span class="nav-number">1.1.16.</span> <span class="nav-text">16、WorkerSender的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17、WorkerSender的process方法"><span class="nav-number">1.1.17.</span> <span class="nav-text">17、WorkerSender的process方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18、WorkerSender的toSend方法"><span class="nav-number">1.1.18.</span> <span class="nav-text">18、WorkerSender的toSend方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19、（接一、15）WorkerReceiver的run方法"><span class="nav-number">1.1.19.</span> <span class="nav-text">19、（接一、15）WorkerReceiver的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20、接（一、2）QuorumPeer的run方法"><span class="nav-number">1.1.20.</span> <span class="nav-text">20、接（一、2）QuorumPeer的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21、FastLeaderElection的lookForLeader方法选举LEADER"><span class="nav-number">1.1.21.</span> <span class="nav-text">21、FastLeaderElection的lookForLeader方法选举LEADER</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、LEADER初始化过程"><span class="nav-number">1.2.</span> <span class="nav-text">二、LEADER初始化过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、实例化Leader"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、实例化Leader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、LEADER的lead方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、LEADER的lead方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、LearnerCnxAcceptor线程的run方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、LearnerCnxAcceptor线程的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、LearnerHandler线程的run方法"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、LearnerHandler线程的run方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、Leader的getEpochToPropose方法"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、Leader的getEpochToPropose方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、接（二、4）Leader的waitForEpochAck方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">6、接（二、4）Leader的waitForEpochAck方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、接（二、4）LearnerHandler的syncFollower方法"><span class="nav-number">1.2.7.</span> <span class="nav-text">7、接（二、4）LearnerHandler的syncFollower方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、LearnerHandler的queueCommittedProposals方法"><span class="nav-number">1.2.8.</span> <span class="nav-text">8、LearnerHandler的queueCommittedProposals方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、接（二、7）Leader的startForwarding方法"><span class="nav-number">1.2.9.</span> <span class="nav-text">9、接（二、7）Leader的startForwarding方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、接（二、2）Leader的startZkServer方法"><span class="nav-number">1.2.10.</span> <span class="nav-text">10、接（二、2）Leader的startZkServer方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、ZooKeeperServer的startup方法"><span class="nav-number">1.2.11.</span> <span class="nav-text">11、ZooKeeperServer的startup方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、LeaderZooKeeperServer的setupRequestProcessors方法"><span class="nav-number">1.2.12.</span> <span class="nav-text">12、LeaderZooKeeperServer的setupRequestProcessors方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、FOLLOWER的followLeader方法"><span class="nav-number">1.2.13.</span> <span class="nav-text">1、FOLLOWER的followLeader方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、FOLLOWER的registerWithLeader方法"><span class="nav-number">1.2.14.</span> <span class="nav-text">2、FOLLOWER的registerWithLeader方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、接（三、1）FOLLOWER的syncWithLeader方法"><span class="nav-number">1.2.15.</span> <span class="nav-text">3、接（三、1）FOLLOWER的syncWithLeader方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、FollowerZooKeeperServer的setupRequestProcessors方法"><span class="nav-number">1.2.16.</span> <span class="nav-text">2、FollowerZooKeeperServer的setupRequestProcessors方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2018/02/21/helloworld/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
 
   
-</article>
+</div>
 
-</section>
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categorías</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java-util-concurrent/">java.util.concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis3/">mybatis3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码整合MyBatis/">spring源码整合MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(2) /">spring源码XmlBeanFactory(2)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/">spring源码XmlBeanFactory(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码Transaction/">spring源码Transaction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码SpringMVC/">spring源码SpringMVC</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
+
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

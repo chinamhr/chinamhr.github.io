@@ -1,13 +1,87 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+
+
 
   
-  <title>spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext一、ClassPathXmlApplicationContext容器启动1、实例化ClassPathXmlApplicationContext123public ClassPathXmlApplicationContext(String configLo">
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext一、ClassPathXmlApplicationContext容器启动1、实例化ClassPathXmlApplicationContext123public ClassPathXmlApplicationContext(String configLo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext">
 <meta property="og:url" content="http://yoursite.com/2018/06/27/spring源码/spring源码ClassPathXmlApplicationContext和AnnotationConfigApplicationContext/index.html">
@@ -17,77 +91,236 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext">
 <meta name="twitter:description" content="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext一、ClassPathXmlApplicationContext容器启动1、实例化ClassPathXmlApplicationContext123public ClassPathXmlApplicationContext(String configLo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/27/spring源码/spring源码ClassPathXmlApplicationContext和AnnotationConfigApplicationContext/"/>
+
+
+
+
+
+  <title>spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext | Hexo</title>
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+
+
+
+
+
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-spring源码/spring源码ClassPathXmlApplicationContext和AnnotationConfigApplicationContext" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/27/spring源码/spring源码ClassPathXmlApplicationContext和AnnotationConfigApplicationContext/" class="article-date">
-  <time datetime="2018-06-27T13:10:29.018Z" itemprop="datePublished">2018-06-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/spring/">spring</a>
+        <p class="site-subtitle"></p>
+      
   </div>
 
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext
-    </h1>
+</div>
+
+<nav class="site-nav">
   
 
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/spring源码/spring源码ClassPathXmlApplicationContext和AnnotationConfigApplicationContext/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T21:10:29+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <h2 id="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext"><a href="#spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext" class="headerlink" title="spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext"></a>spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext</h2><h3 id="一、ClassPathXmlApplicationContext容器启动"><a href="#一、ClassPathXmlApplicationContext容器启动" class="headerlink" title="一、ClassPathXmlApplicationContext容器启动"></a>一、ClassPathXmlApplicationContext容器启动</h3><h4 id="1、实例化ClassPathXmlApplicationContext"><a href="#1、实例化ClassPathXmlApplicationContext" class="headerlink" title="1、实例化ClassPathXmlApplicationContext"></a>1、实例化ClassPathXmlApplicationContext</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public ClassPathXmlApplicationContext(String configLocation) throws BeansException &#123;</span><br><span class="line">    this(new String[] &#123;configLocation&#125;, true, null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public ClassPathXmlApplicationContext(String... configLocations) throws BeansException &#123;</span><br><span class="line">    this(configLocations, true, null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -149,129 +382,373 @@
 <h4 id="25、AutowiredAnnotationBeanPostProcessor的buildResourceMetadata方法"><a href="#25、AutowiredAnnotationBeanPostProcessor的buildResourceMetadata方法" class="headerlink" title="25、AutowiredAnnotationBeanPostProcessor的buildResourceMetadata方法"></a>25、AutowiredAnnotationBeanPostProcessor的buildResourceMetadata方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">private InjectionMetadata buildResourceMetadata(final Class&lt;?&gt; clazz) &#123;</span><br><span class="line">    //注解数据的集合</span><br><span class="line">    LinkedList&lt;InjectionMetadata.InjectedElement&gt; elements = new LinkedList&lt;&gt;();</span><br><span class="line">    Class&lt;?&gt; targetClass = clazz;</span><br><span class="line">    //递归地的解析给定类及其所有父类的注解信息</span><br><span class="line">    do &#123;</span><br><span class="line">        //存放当前类注解数据的集合</span><br><span class="line">        final LinkedList&lt;InjectionMetadata.InjectedElement&gt; currElements =</span><br><span class="line">                new LinkedList&lt;&gt;();</span><br><span class="line">        //遍历所有的字段，查找符合的注解 </span><br><span class="line">        ReflectionUtils.doWithLocalFields(targetClass, field -&gt; &#123;</span><br><span class="line">            //如果字段上配置了WebService相关的注解</span><br><span class="line">            if (webServiceRefClass != null &amp;&amp; field.isAnnotationPresent(webServiceRefClass)) &#123;</span><br><span class="line">                //静态不处理</span><br><span class="line">                if (Modifier.isStatic(field.getModifiers())) &#123;</span><br><span class="line">                    throw new IllegalStateException(&quot;@WebServiceRef annotation is not supported on static fields&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                currElements.add(new WebServiceRefElement(field, field, null));</span><br><span class="line">            &#125;</span><br><span class="line">            //如果当前字段上配置了EJB相关的注解</span><br><span class="line">            else if (ejbRefClass != null &amp;&amp; field.isAnnotationPresent(ejbRefClass)) &#123;</span><br><span class="line">                //静态不处理</span><br><span class="line">                if (Modifier.isStatic(field.getModifiers())) &#123;</span><br><span class="line">                    throw new IllegalStateException(&quot;@EJB annotation is not supported on static fields&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                //加入当前注解数据的集合</span><br><span class="line">                currElements.add(new EjbRefElement(field, field, null));</span><br><span class="line">            &#125;</span><br><span class="line">            //如果当前字段上配置了@Resource注解  </span><br><span class="line">            else if (field.isAnnotationPresent(Resource.class)) &#123;</span><br><span class="line">                if (Modifier.isStatic(field.getModifiers())) &#123;</span><br><span class="line">                    throw new IllegalStateException(&quot;@Resource annotation is not supported on static fields&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                //如果当前自动的类型不再被忽略的Resource类型中，  </span><br><span class="line">                //加入当前注解数据的集合</span><br><span class="line">                if (!ignoredResourceTypes.contains(field.getType().getName())) &#123;</span><br><span class="line">                    currElements.add(new ResourceElement(field, field, null));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        //遍历所有方法，查找相关的注解</span><br><span class="line">        ReflectionUtils.doWithLocalMethods(targetClass, method -&gt; &#123;</span><br><span class="line">            //获取桥接方法</span><br><span class="line">            Method bridgedMethod = BridgeMethodResolver.findBridgedMethod(method);</span><br><span class="line">            if (!BridgeMethodResolver.isVisibilityBridgeMethodPair(method, bridgedMethod)) &#123;</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            //当前方法没有覆盖父类方法</span><br><span class="line">            if (method.equals(ClassUtils.getMostSpecificMethod(method, clazz))) &#123;</span><br><span class="line">                //如果方法上配置了WebService相关的注解</span><br><span class="line">                if (webServiceRefClass != null &amp;&amp; bridgedMethod.isAnnotationPresent(webServiceRefClass)) &#123;</span><br><span class="line">                    if (Modifier.isStatic(method.getModifiers())) &#123;</span><br><span class="line">                        throw new IllegalStateException(&quot;@WebServiceRef annotation is not supported on static methods&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    if (method.getParameterCount() != 1) &#123;</span><br><span class="line">                        throw new IllegalStateException(&quot;@WebServiceRef annotation requires a single-arg method: &quot; + method);</span><br><span class="line">                    &#125;</span><br><span class="line">                    //获取方法的属性描述 </span><br><span class="line">                    PropertyDescriptor pd = BeanUtils.findPropertyForMethod(bridgedMethod, clazz);</span><br><span class="line">                    //加入当前注解数据的集合</span><br><span class="line">                    currElements.add(new WebServiceRefElement(method, bridgedMethod, pd));</span><br><span class="line">                &#125;</span><br><span class="line">                //如果方法上配置了EJB相关的注解  </span><br><span class="line">                else if (ejbRefClass != null &amp;&amp; bridgedMethod.isAnnotationPresent(ejbRefClass)) &#123;</span><br><span class="line">                    if (Modifier.isStatic(method.getModifiers())) &#123;</span><br><span class="line">                        throw new IllegalStateException(&quot;@EJB annotation is not supported on static methods&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    if (method.getParameterCount() != 1) &#123;</span><br><span class="line">                        throw new IllegalStateException(&quot;@EJB annotation requires a single-arg method: &quot; + method);</span><br><span class="line">                    &#125;</span><br><span class="line">                    PropertyDescriptor pd = BeanUtils.findPropertyForMethod(bridgedMethod, clazz);</span><br><span class="line">                    currElements.add(new EjbRefElement(method, bridgedMethod, pd));</span><br><span class="line">                &#125;</span><br><span class="line">                //如果方法上配置了EJB相关的注解  </span><br><span class="line">                else if (bridgedMethod.isAnnotationPresent(Resource.class)) &#123;</span><br><span class="line">                    if (Modifier.isStatic(method.getModifiers())) &#123;</span><br><span class="line">                        throw new IllegalStateException(&quot;@Resource annotation is not supported on static methods&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Class&lt;?&gt;[] paramTypes = method.getParameterTypes();</span><br><span class="line">                    if (paramTypes.length != 1) &#123;</span><br><span class="line">                        throw new IllegalStateException(&quot;@Resource annotation requires a single-arg method: &quot; + method);</span><br><span class="line">                    &#125;</span><br><span class="line">                    if (!ignoredResourceTypes.contains(paramTypes[0].getName())) &#123;</span><br><span class="line">                        PropertyDescriptor pd = BeanUtils.findPropertyForMethod(bridgedMethod, clazz);</span><br><span class="line">                        currElements.add(new ResourceElement(method, bridgedMethod, pd));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        //将当前类注解数据存放到集合中 </span><br><span class="line">        elements.addAll(0, currElements);</span><br><span class="line">        targetClass = targetClass.getSuperclass();</span><br><span class="line">    &#125;</span><br><span class="line">    while (targetClass != null &amp;&amp; targetClass != Object.class);</span><br><span class="line"></span><br><span class="line">    return new InjectionMetadata(clazz, elements);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/27/spring源码/spring源码ClassPathXmlApplicationContext和AnnotationConfigApplicationContext/" data-id="cjix786ll001bbouenkhas4df" class="article-share-link">Compartir</a>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/27/spring源码/spring源码AOP/" rel="next" title="spring源码AOP">
+                <i class="fa fa-chevron-left"></i> spring源码AOP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/27/spring源码/spring源码JdbcTemplate/" rel="prev" title="spring源码JdbcTemplate">
+                spring源码JdbcTemplate <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
       
       
     </footer>
   </div>
   
-    
-<nav id="article-nav">
   
-    <a href="/2018/06/27/spring源码/spring源码JdbcTemplate/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nuevo</strong>
-      <div class="article-nav-title">
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
         
-          spring源码JdbcTemplate
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext"><span class="nav-number">1.</span> <span class="nav-text">spring源码ClassPathXmlApplicationContext、AnnotationConfigApplicationContext</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、ClassPathXmlApplicationContext容器启动"><span class="nav-number">1.1.</span> <span class="nav-text">一、ClassPathXmlApplicationContext容器启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、实例化ClassPathXmlApplicationContext"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、实例化ClassPathXmlApplicationContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、AbstractRefreshableConfigApplicationContext的setConfigLocations方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、AbstractRefreshableConfigApplicationContext的setConfigLocations方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、接（一、1）AbstractApplicationContext的refresh方法"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、接（一、1）AbstractApplicationContext的refresh方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、AbstractApplicationContext的prepareRefresh方法"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、AbstractApplicationContext的prepareRefresh方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、接（一、3）AbstractApplicationContext的obtainFreshBeanFactory方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、接（一、3）AbstractApplicationContext的obtainFreshBeanFactory方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、AbstractRefreshableApplicationContext的refreshBeanFactory方法"><span class="nav-number">1.1.6.</span> <span class="nav-text">6、AbstractRefreshableApplicationContext的refreshBeanFactory方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、AbstractXmlApplicationContext的loadBeanDefinitions方法"><span class="nav-number">1.1.7.</span> <span class="nav-text">7、AbstractXmlApplicationContext的loadBeanDefinitions方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、AbstractXmlApplicationContext的loadBeanDefinitions方法"><span class="nav-number">1.1.8.</span> <span class="nav-text">8、AbstractXmlApplicationContext的loadBeanDefinitions方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、接（一、3）AbstractApplicationContext的prepareBeanFactory方法"><span class="nav-number">1.1.9.</span> <span class="nav-text">9、接（一、3）AbstractApplicationContext的prepareBeanFactory方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、接（一、3）AbstractApplicationContext的invokeBeanFactoryPostProcessors方法"><span class="nav-number">1.1.10.</span> <span class="nav-text">10、接（一、3）AbstractApplicationContext的invokeBeanFactoryPostProcessors方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、PostProcessorRegistrationDelegate的invokeBeanFactoryPostProcessors方法"><span class="nav-number">1.1.11.</span> <span class="nav-text">11、PostProcessorRegistrationDelegate的invokeBeanFactoryPostProcessors方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、接（一、3）AbstractApplicationContext的registerBeanPostProcessors方法"><span class="nav-number">1.1.12.</span> <span class="nav-text">12、接（一、3）AbstractApplicationContext的registerBeanPostProcessors方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、PostProcessorRegistrationDelegate的registerBeanPostProcessors方法"><span class="nav-number">1.1.13.</span> <span class="nav-text">13、PostProcessorRegistrationDelegate的registerBeanPostProcessors方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、接（一、3）AbstractApplicationContext的initMessageSource方法"><span class="nav-number">1.1.14.</span> <span class="nav-text">14、接（一、3）AbstractApplicationContext的initMessageSource方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、接（一、3）AbstractApplicationContext的initApplicationEventMulticaster方法"><span class="nav-number">1.1.15.</span> <span class="nav-text">15、接（一、3）AbstractApplicationContext的initApplicationEventMulticaster方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、接（一、3）AbstractApplicationContext的registerListeners方法"><span class="nav-number">1.1.16.</span> <span class="nav-text">16、接（一、3）AbstractApplicationContext的registerListeners方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17、接（一、3）AbstractApplicationContext的finishBeanFactoryInitialization方法"><span class="nav-number">1.1.17.</span> <span class="nav-text">17、接（一、3）AbstractApplicationContext的finishBeanFactoryInitialization方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18、接（一、3）AbstractApplicationContext的finishRefresh方法"><span class="nav-number">1.1.18.</span> <span class="nav-text">18、接（一、3）AbstractApplicationContext的finishRefresh方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19、AbstractApplicationContext的initLifecycleProcessor方法"><span class="nav-number">1.1.19.</span> <span class="nav-text">19、AbstractApplicationContext的initLifecycleProcessor方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20、接（一、18）DefaultLifecycleProcessor的onRefresh方法"><span class="nav-number">1.1.20.</span> <span class="nav-text">20、接（一、18）DefaultLifecycleProcessor的onRefresh方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21、DefaultLifecycleProcessor的startBeans方法"><span class="nav-number">1.1.21.</span> <span class="nav-text">21、DefaultLifecycleProcessor的startBeans方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22、接（一、18）AbstractApplicationContext的publishEvent方法"><span class="nav-number">1.1.22.</span> <span class="nav-text">22、接（一、18）AbstractApplicationContext的publishEvent方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23、SimpleApplicationEventMulticaster的multicastEvent方法"><span class="nav-number">1.1.23.</span> <span class="nav-text">23、SimpleApplicationEventMulticaster的multicastEvent方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、ClassPathXmlApplicationContext容器关闭"><span class="nav-number">1.2.</span> <span class="nav-text">二、ClassPathXmlApplicationContext容器关闭</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、AbstractApplicationContext的close方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、AbstractApplicationContext的close方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、AbstractApplicationContext的doClose方法"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、AbstractApplicationContext的doClose方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、AnnotationConfigApplicationContext容器启动"><span class="nav-number">1.3.</span> <span class="nav-text">三、AnnotationConfigApplicationContext容器启动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、实例化AnnotationConfigApplicationContext"><span class="nav-number">1.3.1.</span> <span class="nav-text">1、实例化AnnotationConfigApplicationContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、实例化AnnotatedBeanDefinitionReader"><span class="nav-number">1.3.2.</span> <span class="nav-text">2、实例化AnnotatedBeanDefinitionReader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、AnnotationConfigUtils的registerAnnotationConfigProcessors方法"><span class="nav-number">1.3.3.</span> <span class="nav-text">3、AnnotationConfigUtils的registerAnnotationConfigProcessors方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、接（三、1）ClassPathXmlApplicationContext的scan方法"><span class="nav-number">1.3.4.</span> <span class="nav-text">4、接（三、1）ClassPathXmlApplicationContext的scan方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、ClassPathBeanDefinitionScanner的scan方法"><span class="nav-number">1.3.5.</span> <span class="nav-text">5、ClassPathBeanDefinitionScanner的scan方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、ClassPathBeanDefinitionScanner的doScan方法"><span class="nav-number">1.3.6.</span> <span class="nav-text">6、ClassPathBeanDefinitionScanner的doScan方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、ClassPathBeanDefinitionScanner的findCandidateComponents方法"><span class="nav-number">1.3.7.</span> <span class="nav-text">7、ClassPathBeanDefinitionScanner的findCandidateComponents方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、ClassPathBeanDefinitionScanner的isCandidateComponent方法"><span class="nav-number">1.3.8.</span> <span class="nav-text">8、ClassPathBeanDefinitionScanner的isCandidateComponent方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、ClassPathBeanDefinitionScanner的registerDefaultFilters方法"><span class="nav-number">1.3.9.</span> <span class="nav-text">9、ClassPathBeanDefinitionScanner的registerDefaultFilters方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、接（三、4）AnnotationScopeMetadataResolver的resolveScopeMetadata方法"><span class="nav-number">1.3.10.</span> <span class="nav-text">10、接（三、4）AnnotationScopeMetadataResolver的resolveScopeMetadata方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、接（三、4）AnnotationConfigUtils的processCommonDefinitionAnnotations方法"><span class="nav-number">1.3.11.</span> <span class="nav-text">11、接（三、4）AnnotationConfigUtils的processCommonDefinitionAnnotations方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、接（三、1）AbstractApplicationContext的refresh方法"><span class="nav-number">1.3.12.</span> <span class="nav-text">12、接（三、1）AbstractApplicationContext的refresh方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、接（三、3）实例化AutowiredAnnotationBeanPostProcessor处理器"><span class="nav-number">1.3.13.</span> <span class="nav-text">13、接（三、3）实例化AutowiredAnnotationBeanPostProcessor处理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14、AutowiredAnnotationBeanPostProcessor的postProcessMergedBeanDefinition方法"><span class="nav-number">1.3.14.</span> <span class="nav-text">14、AutowiredAnnotationBeanPostProcessor的postProcessMergedBeanDefinition方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15、AutowiredAnnotationBeanPostProcessor的findAutowiringMetadata方法"><span class="nav-number">1.3.15.</span> <span class="nav-text">15、AutowiredAnnotationBeanPostProcessor的findAutowiringMetadata方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16、AutowiredAnnotationBeanPostProcessor的buildAutowiringMetadata方法"><span class="nav-number">1.3.16.</span> <span class="nav-text">16、AutowiredAnnotationBeanPostProcessor的buildAutowiringMetadata方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17、AutowiredAnnotationBeanPostProcessor的findAutowiredAnnotation方法"><span class="nav-number">1.3.17.</span> <span class="nav-text">17、AutowiredAnnotationBeanPostProcessor的findAutowiredAnnotation方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18、AutowiredAnnotationBeanPostProcessor的postProcessPropertyValues方法"><span class="nav-number">1.3.18.</span> <span class="nav-text">18、AutowiredAnnotationBeanPostProcessor的postProcessPropertyValues方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19、InjectionMetadata的inject方法"><span class="nav-number">1.3.19.</span> <span class="nav-text">19、InjectionMetadata的inject方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20、AutowiredFieldElement的inject方法"><span class="nav-number">1.3.20.</span> <span class="nav-text">20、AutowiredFieldElement的inject方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21、AutowiredFieldElement的resolvedCachedArgument方法"><span class="nav-number">1.3.21.</span> <span class="nav-text">21、AutowiredFieldElement的resolvedCachedArgument方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22、接（三、3）实例化AutowiredAnnotationBeanPostProcessor处理器"><span class="nav-number">1.3.22.</span> <span class="nav-text">22、接（三、3）实例化AutowiredAnnotationBeanPostProcessor处理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23、AutowiredAnnotationBeanPostProcessor的postProcessMergedBeanDefinition方法"><span class="nav-number">1.3.23.</span> <span class="nav-text">23、AutowiredAnnotationBeanPostProcessor的postProcessMergedBeanDefinition方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24、AutowiredAnnotationBeanPostProcessor的findResourceMetadata方法"><span class="nav-number">1.3.24.</span> <span class="nav-text">24、AutowiredAnnotationBeanPostProcessor的findResourceMetadata方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#25、AutowiredAnnotationBeanPostProcessor的buildResourceMetadata方法"><span class="nav-number">1.3.25.</span> <span class="nav-text">25、AutowiredAnnotationBeanPostProcessor的buildResourceMetadata方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2018/06/27/spring源码/spring源码AOP/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title">spring源码AOP</div>
-    </a>
-  
-</nav>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
 
   
-</article>
+</div>
 
-</section>
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categorías</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java-util-concurrent/">java.util.concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis3/">mybatis3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码整合MyBatis/">spring源码整合MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(2) /">spring源码XmlBeanFactory(2)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/">spring源码XmlBeanFactory(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码Transaction/">spring源码Transaction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码SpringMVC/">spring源码SpringMVC</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
+
+
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
+    
 
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
