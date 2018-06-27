@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/06/27/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81%E6%95%B4%E5%90%88MyBatis/</loc>
+    
+    <lastmod>2018-06-27T13:33:03.620Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/02/21/helloworld/hello-world/</loc>
     
     <lastmod>2018-06-27T13:23:00.557Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2018/06/27/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81SpringMVC/</loc>
     
     <lastmod>2018-06-25T12:21:48.984Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/06/27/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81%E6%95%B4%E5%90%88MyBatis/</loc>
-    
-    <lastmod>2018-06-15T15:19:32.340Z</lastmod>
     
   </url>
   
