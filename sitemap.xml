@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/06/27/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81%E6%95%B4%E5%90%88MyBatis/</loc>
+    
+    <lastmod>2018-06-28T15:01:12.423Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/04/07/zookeeper%E6%BA%90%E7%A0%81/zookeeper%E6%BA%90%E7%A0%81%E5%AE%A2%E6%88%B7%E7%AB%AF/</loc>
     
     <lastmod>2018-06-28T14:11:34.533Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://yoursite.com/2018/04/07/zookeeper%E6%BA%90%E7%A0%81/zookeeper%E6%BA%90%E7%A0%81%E5%8D%95%E6%9C%BA%E7%89%88%E6%9C%8D%E5%8A%A1%E7%AB%AF/</loc>
     
     <lastmod>2018-06-28T14:09:42.757Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/06/27/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81%E6%95%B4%E5%90%88MyBatis/</loc>
-    
-    <lastmod>2018-06-28T14:09:20.220Z</lastmod>
     
   </url>
   
