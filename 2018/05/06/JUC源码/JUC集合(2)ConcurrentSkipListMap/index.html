@@ -13,7 +13,8 @@
     
 
     
-        <meta name="description" content="JUC集合(2)ConcurrentSkipListMap一、ConcurrentSkipListMap1、实例化ConcurrentSkipListMap1234567891011121314static &amp;#123;    try &amp;#123;        UNSAFE = sun.misc."/>
+        <meta name="description" content="title: JUC集合(2)ConcurrentSkipListMap
+categories: java.util.concurrent一、ConcurrentSkipListMap1、实例化ConcurrentSkipListMap1234567891011121314static &amp;#123;"/>
     
 
     <!--Author-->
@@ -23,12 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="JUC集合(2)ConcurrentSkipListMap"/>
+        <meta property="og:title" content="Hexo"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="JUC集合(2)ConcurrentSkipListMap一、ConcurrentSkipListMap1、实例化ConcurrentSkipListMap1234567891011121314static &amp;#123;    try &amp;#123;        UNSAFE = sun.misc."/>
+        <meta property="og:description" content="title: JUC集合(2)ConcurrentSkipListMap
+categories: java.util.concurrent一、ConcurrentSkipListMap1、实例化ConcurrentSkipListMap1234567891011121314static &amp;#123;"/>
     
 
     <!--Open Graph Site Name-->
@@ -36,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article"/>
+        <meta property="og:type" content="website"/>
     
 
     <!--Page Cover-->
@@ -55,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>JUC集合(2)ConcurrentSkipListMap - Hexo</title>
+    <title>Hexo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -165,7 +167,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>JUC集合(2)ConcurrentSkipListMap</h1>
+                    <h1>Untitled</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -187,25 +189,15 @@
 
             <!-- Tags and categories -->
            
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-<a href="/categories/java-util-concurrent/">java.util.concurrent</a>
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                </div>
-            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="JUC集合-2-ConcurrentSkipListMap"><a href="#JUC集合-2-ConcurrentSkipListMap" class="headerlink" title="JUC集合(2)ConcurrentSkipListMap"></a>JUC集合(2)ConcurrentSkipListMap</h2><h3 id="一、ConcurrentSkipListMap"><a href="#一、ConcurrentSkipListMap" class="headerlink" title="一、ConcurrentSkipListMap"></a>一、ConcurrentSkipListMap</h3><h4 id="1、实例化ConcurrentSkipListMap"><a href="#1、实例化ConcurrentSkipListMap" class="headerlink" title="1、实例化ConcurrentSkipListMap"></a>1、实例化ConcurrentSkipListMap</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        UNSAFE = sun.misc.Unsafe.getUnsafe();</span><br><span class="line">        Class&lt;?&gt; k = Node.class;</span><br><span class="line">        //value的位置偏移。删除节点的锁</span><br><span class="line">        valueOffset = UNSAFE.objectFieldOffset</span><br><span class="line">            (k.getDeclaredField(&quot;value&quot;));</span><br><span class="line">        /后继节点的位置偏移。新增节点的锁</span><br><span class="line">        nextOffset = UNSAFE.objectFieldOffset</span><br><span class="line">            (k.getDeclaredField(&quot;next&quot;));</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        throw new Error(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <hr>
+<p>title: JUC集合(2)ConcurrentSkipListMap</p>
+<h2 id="categories-java-util-concurrent"><a href="#categories-java-util-concurrent" class="headerlink" title="categories: java.util.concurrent"></a>categories: java.util.concurrent</h2><h3 id="一、ConcurrentSkipListMap"><a href="#一、ConcurrentSkipListMap" class="headerlink" title="一、ConcurrentSkipListMap"></a>一、ConcurrentSkipListMap</h3><h4 id="1、实例化ConcurrentSkipListMap"><a href="#1、实例化ConcurrentSkipListMap" class="headerlink" title="1、实例化ConcurrentSkipListMap"></a>1、实例化ConcurrentSkipListMap</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        UNSAFE = sun.misc.Unsafe.getUnsafe();</span><br><span class="line">        Class&lt;?&gt; k = Node.class;</span><br><span class="line">        //value的位置偏移。删除节点的锁</span><br><span class="line">        valueOffset = UNSAFE.objectFieldOffset</span><br><span class="line">            (k.getDeclaredField(&quot;value&quot;));</span><br><span class="line">        /后继节点的位置偏移。新增节点的锁</span><br><span class="line">        nextOffset = UNSAFE.objectFieldOffset</span><br><span class="line">            (k.getDeclaredField(&quot;next&quot;));</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        throw new Error(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public ConcurrentSkipListMap() &#123;</span><br><span class="line">    this.comparator = null;</span><br><span class="line">    initialize();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private void initialize() &#123;</span><br><span class="line">    keySet = null;</span><br><span class="line">    entrySet = null;</span><br><span class="line">    values = null;</span><br><span class="line">    descendingMap = null;</span><br><span class="line">    head = new HeadIndex&lt;K,V&gt;(new Node&lt;K,V&gt;(null, BASE_HEADER, null),</span><br><span class="line">                              null, null, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、实例化Index"><a href="#2、实例化Index" class="headerlink" title="2、实例化Index"></a>2、实例化Index</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        UNSAFE = sun.misc.Unsafe.getUnsafe();</span><br><span class="line">        Class&lt;?&gt; k = Index.class;</span><br><span class="line">        //right的位置偏移。操作索引的锁</span><br><span class="line">        rightOffset = UNSAFE.objectFieldOffset</span><br><span class="line">            (k.getDeclaredField(&quot;right&quot;));</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        throw new Error(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
