@@ -1,95 +1,211 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>spring源码Transaction | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="spring源码Transaction###demospring配置文件123456&amp;lt;!-- 配置事务管理器 --&amp;gt;  &amp;lt;bean id=&amp;quot;txManager&amp;quot;          class=&amp;quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&amp;quot;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="spring源码Transaction">
-<meta property="og:url" content="http://yoursite.com/2018/06/27/spring源码/spring源码Transaction/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="spring源码Transaction###demospring配置文件123456&amp;lt;!-- 配置事务管理器 --&amp;gt;  &amp;lt;bean id=&amp;quot;txManager&amp;quot;          class=&amp;quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&amp;quot;">
-<meta property="og:updated_time" content="2018-06-26T14:44:06.634Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring源码Transaction">
-<meta name="twitter:description" content="spring源码Transaction###demospring配置文件123456&amp;lt;!-- 配置事务管理器 --&amp;gt;  &amp;lt;bean id=&amp;quot;txManager&amp;quot;          class=&amp;quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&amp;quot;">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="spring源码Transaction###demospring配置文件123456&amp;lt;!-- 配置事务管理器 --&amp;gt;  &amp;lt;bean id=&amp;quot;txManager&amp;quot;          class=&amp;quot;org.springframework.jdbc.data"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="spring源码Transaction"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="spring源码Transaction###demospring配置文件123456&amp;lt;!-- 配置事务管理器 --&amp;gt;  &amp;lt;bean id=&amp;quot;txManager&amp;quot;          class=&amp;quot;org.springframework.jdbc.data"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>spring源码Transaction - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>spring源码Transaction</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-06-27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-spring源码/spring源码Transaction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/27/spring源码/spring源码Transaction/" class="article-date">
-  <time datetime="2018-06-27T13:10:29.029Z" itemprop="datePublished">2018-06-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/spring/">spring</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      spring源码Transaction
-    </h1>
-  
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="spring源码Transaction"><a href="#spring源码Transaction" class="headerlink" title="spring源码Transaction"></a>spring源码Transaction</h2><p>###demo<br>spring配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置事务管理器 --&gt;  </span><br><span class="line">&lt;bean id=&quot;txManager&quot;  </span><br><span class="line">        class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;  </span><br><span class="line">        p:dataSource-ref=&quot;dataSource&quot;&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/spring/">spring</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="spring源码Transaction"><a href="#spring源码Transaction" class="headerlink" title="spring源码Transaction"></a>spring源码Transaction</h2><p>###demo<br>spring配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置事务管理器 --&gt;  </span><br><span class="line">&lt;bean id=&quot;txManager&quot;  </span><br><span class="line">        class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;  </span><br><span class="line">        p:dataSource-ref=&quot;dataSource&quot;&gt;  </span><br><span class="line">&lt;/bean&gt;  </span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="一、解析配置文件"><a href="#一、解析配置文件" class="headerlink" title="一、解析配置文件"></a>一、解析配置文件</h3><h4 id="1、TxNamespaceHandler的init方法"><a href="#1、TxNamespaceHandler的init方法" class="headerlink" title="1、TxNamespaceHandler的init方法"></a>1、TxNamespaceHandler的init方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void init() &#123;</span><br><span class="line">    registerBeanDefinitionParser(&quot;advice&quot;, new TxAdviceBeanDefinitionParser());</span><br><span class="line">    //标签解析器</span><br><span class="line">    registerBeanDefinitionParser(&quot;annotation-driven&quot;, new AnnotationDrivenBeanDefinitionParser());</span><br><span class="line">    registerBeanDefinitionParser(&quot;jta-transaction-manager&quot;, new JtaTransactionManagerBeanDefinitionParser());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、AnnotationDrivenBeanDefinitionParser的parse方法"><a href="#2、AnnotationDrivenBeanDefinitionParser的parse方法" class="headerlink" title="2、AnnotationDrivenBeanDefinitionParser的parse方法"></a>2、AnnotationDrivenBeanDefinitionParser的parse方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">@Nullable</span><br><span class="line">public BeanDefinition parse(Element element, ParserContext parserContext) &#123;</span><br><span class="line">    registerTransactionalEventListenerFactory(parserContext);</span><br><span class="line">    String mode = element.getAttribute(&quot;mode&quot;);</span><br><span class="line">    //使用aspectj方式进行事务切入</span><br><span class="line">    if (&quot;aspectj&quot;.equals(mode)) &#123;</span><br><span class="line">        // mode=&quot;aspectj&quot;</span><br><span class="line">        registerTransactionAspect(element, parserContext);</span><br><span class="line">    &#125;</span><br><span class="line">    //使用动态代理方式进行事务切入</span><br><span class="line">    else &#123;</span><br><span class="line">        // mode=&quot;proxy&quot;</span><br><span class="line">        AopAutoProxyConfigurer.configureAutoProxyCreator(element, parserContext);</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、AnnotationDrivenBeanDefinitionParser的parse方法-1"><a href="#2、AnnotationDrivenBeanDefinitionParser的parse方法-1" class="headerlink" title="2、AnnotationDrivenBeanDefinitionParser的parse方法"></a>2、AnnotationDrivenBeanDefinitionParser的parse方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">@Nullable</span><br><span class="line">public BeanDefinition parse(Element element, ParserContext parserContext) &#123;</span><br><span class="line">    //注册事务监听器工厂TransactionalEventListenerFactory</span><br><span class="line">    registerTransactionalEventListenerFactory(parserContext);</span><br><span class="line">    String mode = element.getAttribute(&quot;mode&quot;);</span><br><span class="line">    //使用aspectj方式进行事务切入</span><br><span class="line">    if (&quot;aspectj&quot;.equals(mode)) &#123;</span><br><span class="line">        // mode=&quot;aspectj&quot;</span><br><span class="line">        registerTransactionAspect(element, parserContext);</span><br><span class="line">    &#125;</span><br><span class="line">    //使用动态代理方式进行事务切入</span><br><span class="line">    else &#123;</span><br><span class="line">        // mode=&quot;proxy&quot;</span><br><span class="line">        AopAutoProxyConfigurer.configureAutoProxyCreator(element, parserContext);</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -123,131 +239,76 @@
 <h4 id="13、接（三、2）TransactionInterceptor的commitTransactionAfterReturning方法"><a href="#13、接（三、2）TransactionInterceptor的commitTransactionAfterReturning方法" class="headerlink" title="13、接（三、2）TransactionInterceptor的commitTransactionAfterReturning方法"></a>13、接（三、2）TransactionInterceptor的commitTransactionAfterReturning方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">protected void commitTransactionAfterReturning(@Nullable TransactionInfo txInfo) &#123;</span><br><span class="line">    if (txInfo != null &amp;&amp; txInfo.getTransactionStatus() != null) &#123;</span><br><span class="line">        if (logger.isTraceEnabled()) &#123;</span><br><span class="line">            logger.trace(&quot;Completing transaction for [&quot; + txInfo.getJoinpointIdentification() + &quot;]&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //提交事务</span><br><span class="line">        txInfo.getTransactionManager().commit(txInfo.getTransactionStatus());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="14、AbstractPlatformTransactionManager的commit方法"><a href="#14、AbstractPlatformTransactionManager的commit方法" class="headerlink" title="14、AbstractPlatformTransactionManager的commit方法"></a>14、AbstractPlatformTransactionManager的commit方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public final void commit(TransactionStatus status) throws TransactionException &#123;</span><br><span class="line">    //已提交或回滚</span><br><span class="line">    if (status.isCompleted()) &#123;</span><br><span class="line">        throw new IllegalTransactionStateException(</span><br><span class="line">                &quot;Transaction is already completed - do not call commit or rollback more than once per transaction&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    DefaultTransactionStatus defStatus = (DefaultTransactionStatus) status;</span><br><span class="line">    //TransactionStatus中回滚属性设置为true</span><br><span class="line">    if (defStatus.isLocalRollbackOnly()) &#123;</span><br><span class="line">        if (defStatus.isDebug()) &#123;</span><br><span class="line">            logger.debug(&quot;Transactional code has requested rollback&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //回滚事务</span><br><span class="line">        processRollback(defStatus, false);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    //Transaction中回滚属性设置为true</span><br><span class="line">    if (!shouldCommitOnGlobalRollbackOnly() &amp;&amp; defStatus.isGlobalRollbackOnly()) &#123;</span><br><span class="line">        if (defStatus.isDebug()) &#123;</span><br><span class="line">            logger.debug(&quot;Global transaction is marked as rollback-only but transactional code requested commit&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        processRollback(defStatus, true);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    //提交事务</span><br><span class="line">    processCommit(defStatus);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="15、AbstractPlatformTransactionManager的processCommit方法"><a href="#15、AbstractPlatformTransactionManager的processCommit方法" class="headerlink" title="15、AbstractPlatformTransactionManager的processCommit方法"></a>15、AbstractPlatformTransactionManager的processCommit方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">private void processCommit(DefaultTransactionStatus status) throws TransactionException &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        boolean beforeCompletionInvoked = false;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            boolean unexpectedRollback = false;</span><br><span class="line">            //待子类覆盖</span><br><span class="line">            prepareForCommit(status);</span><br><span class="line">            //调用回调函数的beforeCommit方法</span><br><span class="line">            triggerBeforeCommit(status);</span><br><span class="line">            //调用回调函数的beforeCompletion方法</span><br><span class="line">            triggerBeforeCompletion(status);</span><br><span class="line">            beforeCompletionInvoked = true;</span><br><span class="line"></span><br><span class="line">            if (status.hasSavepoint()) &#123;</span><br><span class="line">                if (status.isDebug()) &#123;</span><br><span class="line">                    logger.debug(&quot;Releasing transaction savepoint&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                unexpectedRollback = status.isGlobalRollbackOnly();</span><br><span class="line">                //释放保存点</span><br><span class="line">                status.releaseHeldSavepoint();</span><br><span class="line">            &#125;</span><br><span class="line">            else if (status.isNewTransaction()) &#123;</span><br><span class="line">                if (status.isDebug()) &#123;</span><br><span class="line">                    logger.debug(&quot;Initiating transaction commit&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                unexpectedRollback = status.isGlobalRollbackOnly();</span><br><span class="line">                //提交事务</span><br><span class="line">                doCommit(status);</span><br><span class="line">            &#125;</span><br><span class="line">            else if (isFailEarlyOnGlobalRollbackOnly()) &#123;</span><br><span class="line">                unexpectedRollback = status.isGlobalRollbackOnly();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // Throw UnexpectedRollbackException if we have a global rollback-only</span><br><span class="line">            // marker but still didn&apos;t get a corresponding exception from commit.</span><br><span class="line">            if (unexpectedRollback) &#123;</span><br><span class="line">                throw new UnexpectedRollbackException(</span><br><span class="line">                        &quot;Transaction silently rolled back because it has been marked as rollback-only&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (UnexpectedRollbackException ex) &#123;</span><br><span class="line">            // can only be caused by doCommit</span><br><span class="line">            triggerAfterCompletion(status, TransactionSynchronization.STATUS_ROLLED_BACK);</span><br><span class="line">            throw ex;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (TransactionException ex) &#123;</span><br><span class="line">            // can only be caused by doCommit</span><br><span class="line">            if (isRollbackOnCommitFailure()) &#123;</span><br><span class="line">                doRollbackOnCommitException(status, ex);</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                triggerAfterCompletion(status, TransactionSynchronization.STATUS_UNKNOWN);</span><br><span class="line">            &#125;</span><br><span class="line">            throw ex;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (RuntimeException | Error ex) &#123;</span><br><span class="line">            if (!beforeCompletionInvoked) &#123;</span><br><span class="line">                triggerBeforeCompletion(status);</span><br><span class="line">            &#125;</span><br><span class="line">            doRollbackOnCommitException(status, ex);</span><br><span class="line">            throw ex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // Trigger afterCommit callbacks, with an exception thrown there</span><br><span class="line">        // propagated to callers but the transaction still considered as committed.</span><br><span class="line">        try &#123;</span><br><span class="line">            //调用回调函数的afterCommit方法</span><br><span class="line">            triggerAfterCommit(status);</span><br><span class="line">        &#125;</span><br><span class="line">        finally &#123;</span><br><span class="line">            //调用回调函数的afterCompletion方法</span><br><span class="line">            triggerAfterCompletion(status, TransactionSynchronization.STATUS_COMMITTED);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    finally &#123;</span><br><span class="line">        //清空当前事务，并恢复挂起的事务</span><br><span class="line">        cleanupAfterCompletion(status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/27/spring源码/spring源码Transaction/" data-id="cjix9o3f2000mcoue1xvrm630" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          spring源码XmlBeanFactory(1)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/06/27/spring源码/spring源码SpringMVC/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">spring源码SpringMVC</div>
-    </a>
-  
-</nav>
 
-  
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java-util-concurrent/">java.util.concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis3/">mybatis3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码整合MyBatis/">spring源码整合MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(2) /">spring源码XmlBeanFactory(2)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/">spring源码XmlBeanFactory(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码Transaction/">spring源码Transaction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码SpringMVC/">spring源码SpringMVC</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
+
 </html>

@@ -1,95 +1,211 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>zookeeper源码客户端 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="zookeeper源码客户端客户端Demo1234567891011121314151617181920ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &amp;#123;           @Override           public void process(WatchedEvent even">
-<meta property="og:type" content="article">
-<meta property="og:title" content="zookeeper源码客户端">
-<meta property="og:url" content="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码客户端/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="zookeeper源码客户端客户端Demo1234567891011121314151617181920ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &amp;#123;           @Override           public void process(WatchedEvent even">
-<meta property="og:updated_time" content="2018-04-07T05:26:40.302Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zookeeper源码客户端">
-<meta name="twitter:description" content="zookeeper源码客户端客户端Demo1234567891011121314151617181920ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &amp;#123;           @Override           public void process(WatchedEvent even">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="zookeeper源码客户端客户端Demo1234567891011121314151617181920ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &amp;#123;           @Overri"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="zookeeper源码客户端"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="zookeeper源码客户端客户端Demo1234567891011121314151617181920ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &amp;#123;           @Overri"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>zookeeper源码客户端 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>zookeeper源码客户端</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-04-07
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-zookeeper源码/zookeeper源码客户端" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码客户端/" class="article-date">
-  <time datetime="2018-04-07T04:44:43.474Z" itemprop="datePublished">2018-04-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/zookeeper/">zookeeper</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      zookeeper源码客户端
-    </h1>
-  
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="zookeeper源码客户端"><a href="#zookeeper源码客户端" class="headerlink" title="zookeeper源码客户端"></a>zookeeper源码客户端</h2><h3 id="客户端Demo"><a href="#客户端Demo" class="headerlink" title="客户端Demo"></a>客户端Demo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void process(WatchedEvent event) &#123;</span><br><span class="line">               // 收到watch通知后的回调函数</span><br><span class="line">               System.out.println(&quot;事件类型&quot; + event.getType() + &quot;，路径&quot; + event.getPath());</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">//参数1 路径，参数2 内容，参数3 权限，参数4 类型</span><br><span class="line">String znodePath = zk.create(&quot;/demo&quot;, &quot;hello zookeeper&quot;.getBytes(), Ids.OPEN_ACL_UNSAFE,</span><br><span class="line">   	CreateMode.EPHEMERAL);</span><br><span class="line"></span><br><span class="line">//判断/java节点是否存在，并且给它注册一个监听器，这个监听器只能监听一次，监听到一次事件后就会失效  </span><br><span class="line">   zk.exists(&quot;/demo&quot;, new Watcher() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void process(WatchedEvent event) &#123;</span><br><span class="line">               // 收到watch通知后的回调函数</span><br><span class="line">               System.out.println(&quot;事件类型&quot; + event.getType() + &quot;，路径&quot; + event.getPath());</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/zookeeper/">zookeeper</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="zookeeper源码客户端"><a href="#zookeeper源码客户端" class="headerlink" title="zookeeper源码客户端"></a>zookeeper源码客户端</h2><h3 id="客户端Demo"><a href="#客户端Demo" class="headerlink" title="客户端Demo"></a>客户端Demo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper zk = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void process(WatchedEvent event) &#123;</span><br><span class="line">               // 收到watch通知后的回调函数</span><br><span class="line">               System.out.println(&quot;事件类型&quot; + event.getType() + &quot;，路径&quot; + event.getPath());</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">//参数1 路径，参数2 内容，参数3 权限，参数4 类型</span><br><span class="line">String znodePath = zk.create(&quot;/demo&quot;, &quot;hello zookeeper&quot;.getBytes(), Ids.OPEN_ACL_UNSAFE,</span><br><span class="line">   	CreateMode.EPHEMERAL);</span><br><span class="line"></span><br><span class="line">//判断/java节点是否存在，并且给它注册一个监听器，这个监听器只能监听一次，监听到一次事件后就会失效  </span><br><span class="line">   zk.exists(&quot;/demo&quot;, new Watcher() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void process(WatchedEvent event) &#123;</span><br><span class="line">               // 收到watch通知后的回调函数</span><br><span class="line">               System.out.println(&quot;事件类型&quot; + event.getType() + &quot;，路径&quot; + event.getPath());</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="一、建立连接过程"><a href="#一、建立连接过程" class="headerlink" title="一、建立连接过程"></a>一、建立连接过程</h3><h4 id="1、实例化ZooKeeper"><a href="#1、实例化ZooKeeper" class="headerlink" title="1、实例化ZooKeeper"></a>1、实例化ZooKeeper</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">   // connectString 连接字符串 如&quot;192.168.12.1:2181,192.168.12.2:2181,192.168.12.3:2181/root&quot;  </span><br><span class="line">   // sessionTimeout 客户端提议的session有效时间</span><br><span class="line">public ZooKeeper(String connectString, int sessionTimeout, Watcher watcher,</span><br><span class="line">           boolean canBeReadOnly, HostProvider aHostProvider,</span><br><span class="line">           ZKClientConfig clientConfig) throws IOException &#123;</span><br><span class="line">       LOG.info(&quot;Initiating client connection, connectString=&quot; + connectString</span><br><span class="line">               + &quot; sessionTimeout=&quot; + sessionTimeout + &quot; watcher=&quot; + watcher);</span><br><span class="line"></span><br><span class="line">       if (clientConfig == null) &#123;</span><br><span class="line">           clientConfig = new ZKClientConfig();</span><br><span class="line">       &#125;</span><br><span class="line">       this.clientConfig = clientConfig;</span><br><span class="line"></span><br><span class="line">       //创建Watcher监听器的管理器</span><br><span class="line">       watchManager = defaultWatchManager();</span><br><span class="line"></span><br><span class="line">       //设置默认的Watcher监听器</span><br><span class="line">       watchManager.defaultWatcher = watcher;</span><br><span class="line"></span><br><span class="line">       ConnectStringParser connectStringParser = new ConnectStringParser(</span><br><span class="line">               connectString);</span><br><span class="line"></span><br><span class="line">       hostProvider = aHostProvider;</span><br><span class="line"></span><br><span class="line">       //客户端负责与服务端通信的对象</span><br><span class="line">       cnxn = new ClientCnxn(connectStringParser.getChrootPath(),</span><br><span class="line">               hostProvider, sessionTimeout, this, watchManager,</span><br><span class="line">               getClientCnxnSocket(), canBeReadOnly);</span><br><span class="line"></span><br><span class="line">       cnxn.start();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、实例化ClientCnxn"><a href="#2、实例化ClientCnxn" class="headerlink" title="2、实例化ClientCnxn"></a>2、实例化ClientCnxn</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public ClientCnxn(String chrootPath, HostProvider hostProvider, int sessionTimeout, ZooKeeper zooKeeper,</span><br><span class="line">           ClientWatchManager watcher, ClientCnxnSocket clientCnxnSocket,</span><br><span class="line">           long sessionId, byte[] sessionPasswd, boolean canBeReadOnly) &#123;</span><br><span class="line">       this.zooKeeper = zooKeeper;</span><br><span class="line">       this.watcher = watcher;</span><br><span class="line">       this.sessionId = sessionId; //初始值为0</span><br><span class="line">       this.sessionPasswd = sessionPasswd; //初始值为 new byte[16]</span><br><span class="line">       this.sessionTimeout = sessionTimeout;</span><br><span class="line">       this.hostProvider = hostProvider;</span><br><span class="line">       this.chrootPath = chrootPath;</span><br><span class="line"></span><br><span class="line">       connectTimeout = sessionTimeout / hostProvider.size();//hostProvider.size() 服务端地址个数</span><br><span class="line">       readTimeout = sessionTimeout * 2 / 3;</span><br><span class="line">       readOnly = canBeReadOnly;</span><br><span class="line"></span><br><span class="line">	//发送和接收socket数据的线程</span><br><span class="line">       sendThread = new SendThread(clientCnxnSocket);</span><br><span class="line"></span><br><span class="line">       //事件线程</span><br><span class="line">       eventThread = new EventThread();</span><br><span class="line"></span><br><span class="line">       this.clientConfig=zooKeeper.getClientConfig();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="3、SendThread的run方法"><a href="#3、SendThread的run方法" class="headerlink" title="3、SendThread的run方法"></a>3、SendThread的run方法</h4><p>ClientCnxn 的start方法 会分别启动SendThread、EventThread、SendThread的run方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void run() &#123;</span><br><span class="line">    clientCnxnSocket.introduce(this, sessionId, outgoingQueue);</span><br><span class="line">    clientCnxnSocket.updateNow();</span><br><span class="line">    //更新最近接受和发送时间</span><br><span class="line">    clientCnxnSocket.updateLastSendAndHeard();</span><br><span class="line">    int to;</span><br><span class="line">    long lastPingRwServer = Time.currentElapsedTime();</span><br><span class="line">    final int MAX_SEND_PING_INTERVAL = 10000; //10 seconds</span><br><span class="line">    InetSocketAddress serverAddress = null;</span><br><span class="line">    while (state.isAlive()) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">        	//判断是否完成连接</span><br><span class="line">            if (!clientCnxnSocket.isConnected()) &#123;</span><br><span class="line">                判断是否关闭</span><br><span class="line">                if (closing) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                //若之前连接过只读服务器，直接用上次查找出的读写服务器地址连接</span><br><span class="line">                if (rwServerAddress != null) &#123;</span><br><span class="line">                    serverAddress = rwServerAddress;</span><br><span class="line">                    rwServerAddress = null;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                	//获取下一个服务端地址 延迟1s返回</span><br><span class="line">                    serverAddress = hostProvider.next(1000);</span><br><span class="line">                &#125;</span><br><span class="line">                //连接服务端</span><br><span class="line">                startConnect(serverAddress);</span><br><span class="line">                clientCnxnSocket.updateLastSendAndHeard();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            判断是否已连接</span><br><span class="line">            if (state.isConnected()) &#123;</span><br><span class="line">                // determine whether we need to send an AuthFailed event.</span><br><span class="line">                if (zooKeeperSaslClient != null) &#123;</span><br><span class="line">                	...</span><br><span class="line">                    //进行sasl权限验证</span><br><span class="line">                &#125;</span><br><span class="line">                //超时剩余时间</span><br><span class="line">                to = readTimeout - clientCnxnSocket.getIdleRecv();</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">            	//超时剩余时间</span><br><span class="line">                to = connectTimeout - clientCnxnSocket.getIdleRecv();</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            //to &lt;= 0 则说明连接超时</span><br><span class="line">            if (to &lt;= 0) &#123;</span><br><span class="line">                ...</span><br><span class="line">                //打印日志抛出异常</span><br><span class="line">                throw new SessionTimeoutException(warnInfo);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            //如果已连接  定时发送心跳检测</span><br><span class="line">            if (state.isConnected()) &#123;</span><br><span class="line">                int timeToNextPing = readTimeout / 2 - clientCnxnSocket.getIdleSend() - </span><br><span class="line">                		((clientCnxnSocket.getIdleSend() &gt; 1000) ? 1000 : 0);</span><br><span class="line">                if (timeToNextPing &lt;= 0 || clientCnxnSocket.getIdleSend() &gt; MAX_SEND_PING_INTERVAL) &#123;</span><br><span class="line">                    //发送ping数据</span><br><span class="line">                    sendPing();</span><br><span class="line">                    clientCnxnSocket.updateLastSend();</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    if (timeToNextPing &lt; to) &#123;</span><br><span class="line">                        to = timeToNextPing;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 如果连接的是只读服务器</span><br><span class="line">            if (state == States.CONNECTEDREADONLY) &#123;</span><br><span class="line">                long now = Time.currentElapsedTime();</span><br><span class="line">                int idlePingRwServer = (int) (now - lastPingRwServer);</span><br><span class="line">                if (idlePingRwServer &gt;= pingRwTimeout) &#123;</span><br><span class="line">                    lastPingRwServer = now;</span><br><span class="line">                    idlePingRwServer = 0;</span><br><span class="line">                    pingRwTimeout =</span><br><span class="line">                        Math.min(2*pingRwTimeout, maxPingRwTimeout);</span><br><span class="line">                    //寻找读写服务器，抛出异常，重新连接</span><br><span class="line">                    pingRwServer();</span><br><span class="line">                &#125;</span><br><span class="line">                to = Math.min(to, pingRwTimeout - idlePingRwServer);</span><br><span class="line">            &#125;</span><br><span class="line">            //处理与客户端的通信</span><br><span class="line">            clientCnxnSocket.doTransport(to, pendingQueue, ClientCnxn.this);</span><br><span class="line">        &#125; catch (Throwable e) &#123;</span><br><span class="line">            if (closing) &#123;</span><br><span class="line">                ...</span><br><span class="line">                //跳出主循环，结束线程</span><br><span class="line">                break;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                ...</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    synchronized (state) &#123;</span><br><span class="line">        断开连接，处理队列中的数据包</span><br><span class="line">        cleanup();</span><br><span class="line">    &#125;</span><br><span class="line">    关闭socket</span><br><span class="line">    clientCnxnSocket.close();</span><br><span class="line">    if (state.isAlive()) &#123;</span><br><span class="line">    	//添加断开连接事件</span><br><span class="line">        eventThread.queueEvent(new WatchedEvent(Event.EventType.None,</span><br><span class="line">                Event.KeeperState.Disconnected, null));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -116,131 +232,76 @@
 <h4 id="3、ExistsWatchRegistration的getWatches方法"><a href="#3、ExistsWatchRegistration的getWatches方法" class="headerlink" title="3、ExistsWatchRegistration的getWatches方法"></a>3、ExistsWatchRegistration的getWatches方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">   protected Map&lt;String, Set&lt;Watcher&gt;&gt; getWatches(int rc) &#123;</span><br><span class="line">   	//返回成功则注册到dataWatches，不存在则注册到existWatches中</span><br><span class="line">       return rc == 0 ?  watchManager.dataWatches : watchManager.existWatches;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>到此zookeeper客户端源码就介绍完了</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码客户端/" data-id="cjix9o3f7000ucouegetx6zln" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/04/20/mybatis3源码/mybatis源码sql执行过程（1）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          mybatis源码sql执行过程（1）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码单机版服务端/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">zookeeper源码单机版服务端</div>
-    </a>
-  
-</nav>
 
-  
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java-util-concurrent/">java.util.concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis3/">mybatis3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码整合MyBatis/">spring源码整合MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(2) /">spring源码XmlBeanFactory(2)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/">spring源码XmlBeanFactory(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码Transaction/">spring源码Transaction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码SpringMVC/">spring源码SpringMVC</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
+
 </html>

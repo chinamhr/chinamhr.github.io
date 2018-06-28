@@ -1,95 +1,211 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>zookeeper源码单机版服务端 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="zookeeper源码单机版服务端一、服务器启动过程1、ZooKeeperServerMain的nitializeAndRun方法单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法123456789101112131415161718protected void initializeAndRun(String[] args)     thr">
-<meta property="og:type" content="article">
-<meta property="og:title" content="zookeeper源码单机版服务端">
-<meta property="og:url" content="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码单机版服务端/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="zookeeper源码单机版服务端一、服务器启动过程1、ZooKeeperServerMain的nitializeAndRun方法单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法123456789101112131415161718protected void initializeAndRun(String[] args)     thr">
-<meta property="og:updated_time" content="2018-04-07T05:20:30.839Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zookeeper源码单机版服务端">
-<meta name="twitter:description" content="zookeeper源码单机版服务端一、服务器启动过程1、ZooKeeperServerMain的nitializeAndRun方法单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法123456789101112131415161718protected void initializeAndRun(String[] args)     thr">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="zookeeper源码单机版服务端一、服务器启动过程1、ZooKeeperServerMain的nitializeAndRun方法单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法123456789101112131415161718prot"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="zookeeper源码单机版服务端"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="zookeeper源码单机版服务端一、服务器启动过程1、ZooKeeperServerMain的nitializeAndRun方法单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法123456789101112131415161718prot"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>zookeeper源码单机版服务端 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>zookeeper源码单机版服务端</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-04-07
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-zookeeper源码/zookeeper源码单机版服务端" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码单机版服务端/" class="article-date">
-  <time datetime="2018-04-07T04:44:43.471Z" itemprop="datePublished">2018-04-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/zookeeper/">zookeeper</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      zookeeper源码单机版服务端
-    </h1>
-  
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="zookeeper源码单机版服务端"><a href="#zookeeper源码单机版服务端" class="headerlink" title="zookeeper源码单机版服务端"></a>zookeeper源码单机版服务端</h2><h3 id="一、服务器启动过程"><a href="#一、服务器启动过程" class="headerlink" title="一、服务器启动过程"></a>一、服务器启动过程</h3><h4 id="1、ZooKeeperServerMain的nitializeAndRun方法"><a href="#1、ZooKeeperServerMain的nitializeAndRun方法" class="headerlink" title="1、ZooKeeperServerMain的nitializeAndRun方法"></a>1、ZooKeeperServerMain的nitializeAndRun方法</h4><p>单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">protected void initializeAndRun(String[] args)</span><br><span class="line">     throws ConfigException, IOException, AdminServerException</span><br><span class="line"> &#123;</span><br><span class="line">     try &#123;</span><br><span class="line">         ManagedUtil.registerLog4jMBeans();</span><br><span class="line">     &#125; catch (JMException e) &#123;</span><br><span class="line">         LOG.warn(&quot;Unable to register log4j JMX control&quot;, e);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     ServerConfig config = new ServerConfig();</span><br><span class="line">     if (args.length == 1) &#123;</span><br><span class="line">         //args[0]为配置文件路径</span><br><span class="line">         config.parse(args[0]);</span><br><span class="line">     &#125; else &#123;</span><br><span class="line">         config.parse(args);</span><br><span class="line">     &#125;</span><br><span class="line">     runFromConfig(config);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/zookeeper/">zookeeper</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="zookeeper源码单机版服务端"><a href="#zookeeper源码单机版服务端" class="headerlink" title="zookeeper源码单机版服务端"></a>zookeeper源码单机版服务端</h2><h3 id="一、服务器启动过程"><a href="#一、服务器启动过程" class="headerlink" title="一、服务器启动过程"></a>一、服务器启动过程</h3><h4 id="1、ZooKeeperServerMain的nitializeAndRun方法"><a href="#1、ZooKeeperServerMain的nitializeAndRun方法" class="headerlink" title="1、ZooKeeperServerMain的nitializeAndRun方法"></a>1、ZooKeeperServerMain的nitializeAndRun方法</h4><p>单机版入口为ZooKeeperServerMain类main方法，调用了initializeAndRun方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">protected void initializeAndRun(String[] args)</span><br><span class="line">     throws ConfigException, IOException, AdminServerException</span><br><span class="line"> &#123;</span><br><span class="line">     try &#123;</span><br><span class="line">         ManagedUtil.registerLog4jMBeans();</span><br><span class="line">     &#125; catch (JMException e) &#123;</span><br><span class="line">         LOG.warn(&quot;Unable to register log4j JMX control&quot;, e);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     ServerConfig config = new ServerConfig();</span><br><span class="line">     if (args.length == 1) &#123;</span><br><span class="line">         //args[0]为配置文件路径</span><br><span class="line">         config.parse(args[0]);</span><br><span class="line">     &#125; else &#123;</span><br><span class="line">         config.parse(args);</span><br><span class="line">     &#125;</span><br><span class="line">     runFromConfig(config);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="2、ServerConfig的parse方法"><a href="#2、ServerConfig的parse方法" class="headerlink" title="2、ServerConfig的parse方法"></a>2、ServerConfig的parse方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void parse(String path) throws ConfigException &#123;</span><br><span class="line">    QuorumPeerConfig config = new QuorumPeerConfig();</span><br><span class="line">    //解析配置文件</span><br><span class="line">    config.parse(path);</span><br><span class="line">    //将解析存放于QuorumPeerConfig中的配置信息赋值给ServerConfig</span><br><span class="line">    readFrom(config);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="3、runFromConfig方法"><a href="#3、runFromConfig方法" class="headerlink" title="3、runFromConfig方法"></a>3、runFromConfig方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"> public void runFromConfig(ServerConfig config)</span><br><span class="line">        throws IOException, AdminServerException &#123;</span><br><span class="line">    FileTxnSnapLog txnLog = null;</span><br><span class="line">    try &#123;</span><br><span class="line">        //FileTxnSnapLog包含了日志和快照文件 </span><br><span class="line">        txnLog = new FileTxnSnapLog(config.dataLogDir, config.dataDir);</span><br><span class="line">        //zookeeper服务器实例</span><br><span class="line">        final ZooKeeperServer zkServer = new ZooKeeperServer(txnLog,</span><br><span class="line">                config.tickTime, config.minSessionTimeout, config.maxSessionTimeout, null);</span><br><span class="line">        //主线程以此等待zkServer关闭</span><br><span class="line">        final CountDownLatch shutdownLatch = new CountDownLatch(1);</span><br><span class="line">        zkServer.registerServerShutdownHandler(</span><br><span class="line">                new ZooKeeperServerShutdownHandler(shutdownLatch));</span><br><span class="line"></span><br><span class="line">        //内嵌的管理控制台是通过jetty启动,占用8080 端口</span><br><span class="line">        adminServer = AdminServerFactory.createAdminServer();</span><br><span class="line">        adminServer.setZooKeeperServer(zkServer);</span><br><span class="line">        adminServer.start();</span><br><span class="line"></span><br><span class="line">        boolean needStartZKServer = true;</span><br><span class="line">        if (config.getClientPortAddress() != null) &#123;</span><br><span class="line">            //连接工厂，默认NIOServerCnxnFactory </span><br><span class="line">            cnxnFactory = ServerCnxnFactory.createFactory();</span><br><span class="line">            //监听客户端请求，实例化接受、处理请求的线程</span><br><span class="line">            cnxnFactory.configure(config.getClientPortAddress(), config.getMaxClientCnxns(), false);</span><br><span class="line">            cnxnFactory.startup(zkServer);</span><br><span class="line">            // zkServer has been started. So we don&apos;t need to start it again in secureCnxnFactory.</span><br><span class="line">            needStartZKServer = false;</span><br><span class="line">        &#125;</span><br><span class="line">        ...</span><br><span class="line">        //定期删除子节点为空的容器节点</span><br><span class="line">        containerManager = new ContainerManager(zkServer.getZKDatabase(), zkServer.firstProcessor,</span><br><span class="line">                Integer.getInteger(&quot;znode.container.checkIntervalMs&quot;, (int) TimeUnit.MINUTES.toMillis(1)),</span><br><span class="line">                Integer.getInteger(&quot;znode.container.maxPerMinute&quot;, 10000)</span><br><span class="line">        );</span><br><span class="line">        containerManager.start();</span><br><span class="line"></span><br><span class="line">        // Watch status of ZooKeeper server. It will do a graceful shutdown</span><br><span class="line">        // if the server is not running or hits an internal error.</span><br><span class="line">        shutdownLatch.await();</span><br><span class="line"></span><br><span class="line">        shutdown();</span><br><span class="line"></span><br><span class="line">        //等待子线程执行完毕</span><br><span class="line">        if (cnxnFactory != null) &#123;</span><br><span class="line">            cnxnFactory.join();</span><br><span class="line">        &#125;</span><br><span class="line">        if (secureCnxnFactory != null) &#123;</span><br><span class="line">            secureCnxnFactory.join();</span><br><span class="line">        &#125;</span><br><span class="line">        if (zkServer.canShutdown()) &#123;</span><br><span class="line">            zkServer.shutdown(true);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        // warn, but generally this is ok</span><br><span class="line">        LOG.warn(&quot;Server interrupted&quot;, e);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        if (txnLog != null) &#123;</span><br><span class="line">            txnLog.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="4、NIOServerCnxnFactory的configure方法"><a href="#4、NIOServerCnxnFactory的configure方法" class="headerlink" title="4、NIOServerCnxnFactory的configure方法"></a>4、NIOServerCnxnFactory的configure方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void configure(InetSocketAddress addr, int maxcc, boolean secure) throws IOException &#123;</span><br><span class="line">    if (secure) &#123;</span><br><span class="line">        throw new UnsupportedOperationException(&quot;SSL isn&apos;t supported in NIOServerCnxn&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    configureSaslLogin();</span><br><span class="line">    //单个客户端与单台服务器之间的连接数的限制</span><br><span class="line">    maxClientCnxns = maxcc;</span><br><span class="line">    //服务端连接过期时间</span><br><span class="line">    sessionlessCnxnTimeout = Integer.getInteger(</span><br><span class="line">        ZOOKEEPER_NIO_SESSIONLESS_CNXN_TIMEOUT, 10000);</span><br><span class="line">    //存放服务端接收到的连接</span><br><span class="line">    cnxnExpiryQueue =</span><br><span class="line">        new ExpiryQueue&lt;NIOServerCnxn&gt;(sessionlessCnxnTimeout);</span><br><span class="line">    //该线程关闭cnxnExpiryQueue中已经过期的连接</span><br><span class="line">    expirerThread = new ConnectionExpirerThread();</span><br><span class="line"></span><br><span class="line">    int numCores = Runtime.getRuntime().availableProcessors();</span><br><span class="line">    // 32 cores sweet spot seems to be 4 selector threads</span><br><span class="line">    numSelectorThreads = Integer.getInteger(</span><br><span class="line">        ZOOKEEPER_NIO_NUM_SELECTOR_THREADS,</span><br><span class="line">        Math.max((int) Math.sqrt((float) numCores/2), 1));</span><br><span class="line">    if (numSelectorThreads &lt; 1) &#123;</span><br><span class="line">        throw new IOException(&quot;numSelectorThreads must be at least 1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    numWorkerThreads = Integer.getInteger(</span><br><span class="line">        ZOOKEEPER_NIO_NUM_WORKER_THREADS, 2 * numCores);</span><br><span class="line">    workerShutdownTimeoutMS = Long.getLong(</span><br><span class="line">        ZOOKEEPER_NIO_SHUTDOWN_TIMEOUT, 5000);</span><br><span class="line"></span><br><span class="line">    //处理接收到请求的线程</span><br><span class="line">    for(int i=0; i&lt;numSelectorThreads; ++i) &#123;</span><br><span class="line">        selectorThreads.add(new SelectorThread(i));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.ss = ServerSocketChannel.open();</span><br><span class="line">    ss.socket().setReuseAddress(true);</span><br><span class="line">    LOG.info(&quot;binding to port &quot; + addr);</span><br><span class="line">    ss.socket().bind(addr);</span><br><span class="line">    ss.configureBlocking(false);</span><br><span class="line">    //接受客户端请求的线程</span><br><span class="line">    acceptThread = new AcceptThread(ss, addr, selectorThreads);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -142,131 +258,76 @@
 <h4 id="2、DataTree的statNode方法"><a href="#2、DataTree的statNode方法" class="headerlink" title="2、DataTree的statNode方法"></a>2、DataTree的statNode方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public Stat statNode(String path, Watcher watcher)</span><br><span class="line">        throws KeeperException.NoNodeException &#123;</span><br><span class="line">    Stat stat = new Stat();</span><br><span class="line">    //快速获取节点</span><br><span class="line">    DataNode n = nodes.get(path);</span><br><span class="line">    if (watcher != null) &#123;</span><br><span class="line">        //监听器添加到集合中</span><br><span class="line">        dataWatches.addWatch(path, watcher);</span><br><span class="line">    &#125;</span><br><span class="line">    if (n == null) &#123;</span><br><span class="line">        throw new KeeperException.NoNodeException();</span><br><span class="line">    &#125;</span><br><span class="line">    synchronized (n) &#123;</span><br><span class="line">        //获取节点状态信息</span><br><span class="line">        n.copyStat(stat);</span><br><span class="line">        return stat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注册监听器，到这儿就结束了。<br>单机版服务端源码介绍到此就结束了。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/07/zookeeper源码/zookeeper源码单机版服务端/" data-id="cjix9o3gj001lcoue0pv5tuhm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码客户端/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          zookeeper源码客户端
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/04/07/zookeeper源码/zookeeper源码分布式服务端（2）/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">zookeeper源码分布式服务端（2）</div>
-    </a>
-  
-</nav>
 
-  
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java-util-concurrent/">java.util.concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis3/">mybatis3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码整合MyBatis/">spring源码整合MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(2) /">spring源码XmlBeanFactory(2)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/">spring源码XmlBeanFactory(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码Transaction/">spring源码Transaction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码SpringMVC/">spring源码SpringMVC</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
+
 </html>

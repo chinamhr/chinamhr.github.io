@@ -1,95 +1,211 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>springboot源码@SpringBootApplication | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springboot源码@SpringBootApplication123456789101112@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Inherited@SpringBootConfiguration@EnableAutoConfiguration@ComponentScan(exclude">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springboot源码@SpringBootApplication">
-<meta property="og:url" content="http://yoursite.com/2018/06/27/spring源码/springboot源码默认注解/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="springboot源码@SpringBootApplication123456789101112@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Inherited@SpringBootConfiguration@EnableAutoConfiguration@ComponentScan(exclude">
-<meta property="og:updated_time" content="2018-06-27T13:00:31.399Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot源码@SpringBootApplication">
-<meta name="twitter:description" content="springboot源码@SpringBootApplication123456789101112@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Inherited@SpringBootConfiguration@EnableAutoConfiguration@ComponentScan(exclude">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="springboot源码@SpringBootApplication123456789101112@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Inherited@SpringBootConfigura"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="springboot源码@SpringBootApplication"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="springboot源码@SpringBootApplication123456789101112@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Inherited@SpringBootConfigura"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>springboot源码@SpringBootApplication - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>springboot源码@SpringBootApplication</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-06-27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-spring源码/springboot源码默认注解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/27/spring源码/springboot源码默认注解/" class="article-date">
-  <time datetime="2018-06-27T13:10:29.014Z" itemprop="datePublished">2018-06-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/spring/">spring</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      springboot源码@SpringBootApplication
-    </h1>
-  
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="springboot源码-SpringBootApplication"><a href="#springboot源码-SpringBootApplication" class="headerlink" title="springboot源码@SpringBootApplication"></a>springboot源码@SpringBootApplication</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.TYPE)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Inherited</span><br><span class="line">@SpringBootConfiguration</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">@ComponentScan(excludeFilters = &#123;</span><br><span class="line">        @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),</span><br><span class="line">        @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &#125;)</span><br><span class="line">public @interface SpringBootApplication &#123;</span><br><span class="line">    。。。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/spring/">spring</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="springboot源码-SpringBootApplication"><a href="#springboot源码-SpringBootApplication" class="headerlink" title="springboot源码@SpringBootApplication"></a>springboot源码@SpringBootApplication</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.TYPE)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Documented</span><br><span class="line">@Inherited</span><br><span class="line">@SpringBootConfiguration</span><br><span class="line">@EnableAutoConfiguration</span><br><span class="line">@ComponentScan(excludeFilters = &#123;</span><br><span class="line">        @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),</span><br><span class="line">        @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &#125;)</span><br><span class="line">public @interface SpringBootApplication &#123;</span><br><span class="line">    。。。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="一、-SpringBootConfiguration注解"><a href="#一、-SpringBootConfiguration注解" class="headerlink" title="一、@SpringBootConfiguration注解"></a>一、@SpringBootConfiguration注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//ElementType.TYPE表示SpringBootConfiguration注解作用于接口、类、枚举类</span><br><span class="line">@Target(ElementType.TYPE)</span><br><span class="line">//RetentionPolicy.RUNTIME表示SpringBootConfiguration注解信息保留至运行时</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">//表示@SpringBootConfiguration注解会被javadoc工具提取成文档</span><br><span class="line">@Documented</span><br><span class="line">//被本注解或组合注解，注解的类是springboot的配置类</span><br><span class="line">@Configuration</span><br><span class="line">public @interface SpringBootConfiguration &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="1、-Target注解"><a href="#1、-Target注解" class="headerlink" title="1、@Target注解"></a>1、@Target注解</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Documented</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">//ElementType.ANNOTATION_TYPE表示Target只能作用于注解类</span><br><span class="line">@Target(ElementType.ANNOTATION_TYPE)</span><br><span class="line">public @interface Target &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Returns an array of the kinds of elements an annotation type</span><br><span class="line">     * can be applied to.</span><br><span class="line">     * @return an array of the kinds of elements an annotation type</span><br><span class="line">     * can be applied to</span><br><span class="line">     */</span><br><span class="line">    ElementType[] value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2、-Retention注解"><a href="#2、-Retention注解" class="headerlink" title="2、@Retention注解"></a>2、@Retention注解</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Documented</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Target(ElementType.ANNOTATION_TYPE)</span><br><span class="line">public @interface Retention &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Returns the retention policy.</span><br><span class="line">     * @return the retention policy</span><br><span class="line">     */</span><br><span class="line">    RetentionPolicy value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -126,131 +242,76 @@
 <h4 id="4、-ProxyTransactionManagementConfiguration注解"><a href="#4、-ProxyTransactionManagementConfiguration注解" class="headerlink" title="4、@ProxyTransactionManagementConfiguration注解"></a>4、@ProxyTransactionManagementConfiguration注解</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class ProxyTransactionManagementConfiguration extends AbstractTransactionManagementConfiguration &#123;</span><br><span class="line"></span><br><span class="line">    @Bean(name = TransactionManagementConfigUtils.TRANSACTION_ADVISOR_BEAN_NAME)</span><br><span class="line">    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)</span><br><span class="line">    //注册通知器</span><br><span class="line">    public BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor() &#123;</span><br><span class="line">        BeanFactoryTransactionAttributeSourceAdvisor advisor = new BeanFactoryTransactionAttributeSourceAdvisor();</span><br><span class="line">        advisor.setTransactionAttributeSource(transactionAttributeSource());</span><br><span class="line">        advisor.setAdvice(transactionInterceptor());</span><br><span class="line">        if (this.enableTx != null) &#123;</span><br><span class="line">            advisor.setOrder(this.enableTx.&lt;Integer&gt;getNumber(&quot;order&quot;));</span><br><span class="line">        &#125;</span><br><span class="line">        return advisor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)</span><br><span class="line">    //注册TransactionAttributeSource</span><br><span class="line">    public TransactionAttributeSource transactionAttributeSource() &#123;</span><br><span class="line">        return new AnnotationTransactionAttributeSource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)</span><br><span class="line">    //注册TransactionInterceptor事务增强器</span><br><span class="line">    public TransactionInterceptor transactionInterceptor() &#123;</span><br><span class="line">        TransactionInterceptor interceptor = new TransactionInterceptor();</span><br><span class="line">        interceptor.setTransactionAttributeSource(transactionAttributeSource());</span><br><span class="line">        if (this.txManager != null) &#123;</span><br><span class="line">            interceptor.setTransactionManager(this.txManager);</span><br><span class="line">        &#125;</span><br><span class="line">        return interceptor;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="八、DataSourceTransactionManagerAutoConfiguration自动配置类"><a href="#八、DataSourceTransactionManagerAutoConfiguration自动配置类" class="headerlink" title="八、DataSourceTransactionManagerAutoConfiguration自动配置类"></a>八、DataSourceTransactionManagerAutoConfiguration自动配置类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">@org.springframework.context.annotation.Configuration</span><br><span class="line">@ConditionalOnClass(&#123; SqlSessionFactory.class, SqlSessionFactoryBean.class &#125;)</span><br><span class="line">@ConditionalOnBean(DataSource.class)</span><br><span class="line">//自动处理属性注解</span><br><span class="line">@EnableConfigurationProperties(MybatisProperties.class)</span><br><span class="line">@AutoConfigureAfter(DataSourceAutoConfiguration.class)</span><br><span class="line">public class MybatisAutoConfiguration &#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    @ConditionalOnMissingBean</span><br><span class="line">    //创建SqlSessionFactory</span><br><span class="line">    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception &#123;</span><br><span class="line">        SqlSessionFactoryBean factory = new SqlSessionFactoryBean();</span><br><span class="line">        factory.setDataSource(dataSource);</span><br><span class="line">        factory.setVfs(SpringBootVFS.class);</span><br><span class="line">        //设置配置文件地址</span><br><span class="line">        if (StringUtils.hasText(this.properties.getConfigLocation())) &#123;</span><br><span class="line">            factory.setConfigLocation(this.resourceLoader.getResource(this.properties.getConfigLocation()));</span><br><span class="line">        &#125;</span><br><span class="line">        Configuration configuration = this.properties.getConfiguration();</span><br><span class="line">        if (configuration == null &amp;&amp; !StringUtils.hasText(this.properties.getConfigLocation())) &#123;</span><br><span class="line">            //创建configuration</span><br><span class="line">            configuration = new Configuration();</span><br><span class="line">        &#125;</span><br><span class="line">        if (configuration != null &amp;&amp; !CollectionUtils.isEmpty(this.configurationCustomizers)) &#123;</span><br><span class="line">            for (ConfigurationCustomizer customizer : this.configurationCustomizers) &#123;</span><br><span class="line">                customizer.customize(configuration);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //设置configuration</span><br><span class="line">        factory.setConfiguration(configuration);</span><br><span class="line">        if (this.properties.getConfigurationProperties() != null) &#123;</span><br><span class="line">            factory.setConfigurationProperties(this.properties.getConfigurationProperties());</span><br><span class="line">        &#125;</span><br><span class="line">        //设置拦截器</span><br><span class="line">        if (!ObjectUtils.isEmpty(this.interceptors)) &#123;</span><br><span class="line">            factory.setPlugins(this.interceptors);</span><br><span class="line">        &#125;</span><br><span class="line">        if (this.databaseIdProvider != null) &#123;</span><br><span class="line">            factory.setDatabaseIdProvider(this.databaseIdProvider);</span><br><span class="line">        &#125;</span><br><span class="line">        //设置注册别名的包</span><br><span class="line">        if (StringUtils.hasLength(this.properties.getTypeAliasesPackage())) &#123;</span><br><span class="line">            factory.setTypeAliasesPackage(this.properties.getTypeAliasesPackage());</span><br><span class="line">        &#125;</span><br><span class="line">        if (StringUtils.hasLength(this.properties.getTypeHandlersPackage())) &#123;</span><br><span class="line">            factory.setTypeHandlersPackage(this.properties.getTypeHandlersPackage());</span><br><span class="line">        &#125;</span><br><span class="line">        //mapper文件地址</span><br><span class="line">        if (!ObjectUtils.isEmpty(this.properties.resolveMapperLocations())) &#123;</span><br><span class="line">            factory.setMapperLocations(this.properties.resolveMapperLocations());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return factory.getObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    @ConditionalOnMissingBean</span><br><span class="line">    //创建SqlSessionTemplate</span><br><span class="line">    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) &#123;</span><br><span class="line">        ExecutorType executorType = this.properties.getExecutorType();</span><br><span class="line">        if (executorType != null) &#123;</span><br><span class="line">            return new SqlSessionTemplate(sqlSessionFactory, executorType);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return new SqlSessionTemplate(sqlSessionFactory);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * &#123;@link org.mybatis.spring.annotation.MapperScan&#125; ultimately ends up</span><br><span class="line">     * creating instances of &#123;@link MapperFactoryBean&#125;. If</span><br><span class="line">     * &#123;@link org.mybatis.spring.annotation.MapperScan&#125; is used then this</span><br><span class="line">     * auto-configuration is not needed. If it is _not_ used, however, then this</span><br><span class="line">     * will bring in a bean registrar and automatically register components based</span><br><span class="line">     * on the same component-scanning path as Spring Boot itself.</span><br><span class="line">     */</span><br><span class="line">    @org.springframework.context.annotation.Configuration</span><br><span class="line">    //执行AutoConfiguredMapperScannerRegistrar的registerBeanDefinitions</span><br><span class="line">    @Import(&#123; AutoConfiguredMapperScannerRegistrar.class &#125;)</span><br><span class="line">    @ConditionalOnMissingBean(MapperFactoryBean.class)</span><br><span class="line">    public static class MapperScannerRegistrarNotFoundConfiguration &#123;</span><br><span class="line"></span><br><span class="line">        @PostConstruct</span><br><span class="line">        public void afterPropertiesSet() &#123;</span><br><span class="line">            logger.debug(&quot;No &#123;&#125; found.&quot;, MapperFactoryBean.class.getName());</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="1、AutoConfiguredMapperScannerRegistrar的registerBeanDefinitions方法"><a href="#1、AutoConfiguredMapperScannerRegistrar的registerBeanDefinitions方法" class="headerlink" title="1、AutoConfiguredMapperScannerRegistrar的registerBeanDefinitions方法"></a>1、AutoConfiguredMapperScannerRegistrar的registerBeanDefinitions方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) &#123;</span><br><span class="line"></span><br><span class="line">    logger.debug(&quot;Searching for mappers annotated with @Mapper&quot;);</span><br><span class="line">    //扫描器</span><br><span class="line">    ClassPathMapperScanner scanner = new ClassPathMapperScanner(registry);</span><br><span class="line"></span><br><span class="line">    try &#123;</span><br><span class="line">        if (this.resourceLoader != null) &#123;</span><br><span class="line">            scanner.setResourceLoader(this.resourceLoader);</span><br><span class="line">        &#125;</span><br><span class="line">        //从IOC容器中，获取包路径</span><br><span class="line">        List&lt;String&gt; packages = AutoConfigurationPackages.get(this.beanFactory);</span><br><span class="line">        if (logger.isDebugEnabled()) &#123;</span><br><span class="line">            for (String pkg : packages) &#123;</span><br><span class="line">                logger.debug(&quot;Using auto-configuration base package &apos;&#123;&#125;&apos;&quot;, pkg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //设置扫描的注解</span><br><span class="line">        scanner.setAnnotationClass(Mapper.class);</span><br><span class="line">        //设置过滤器</span><br><span class="line">        scanner.registerFilters();</span><br><span class="line">        //扫描包</span><br><span class="line">        scanner.doScan(StringUtils.toStringArray(packages));</span><br><span class="line">    &#125; catch (IllegalStateException ex) &#123;</span><br><span class="line">        logger.debug(&quot;Could not determine auto-configuration package, automatic mapper scanning disabled.&quot;, ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/27/spring源码/springboot源码默认注解/" data-id="cjix9o3ew000fcoue4cx7mt8e" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/06/27/spring源码/spring源码AOP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          spring源码AOP
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/06/27/spring源码/springboot源码启动过程/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">springboot源码启动过程</div>
-    </a>
-  
-</nav>
 
-  
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java-util-concurrent/">java.util.concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis3/">mybatis3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/zookeeper/">zookeeper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li></ul>
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码整合MyBatis/">spring源码整合MyBatis</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(2) /">spring源码XmlBeanFactory(2)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码XmlBeanFactory(1)/">spring源码XmlBeanFactory(1)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码Transaction/">spring源码Transaction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/27/spring源码/spring源码SpringMVC/">spring源码SpringMVC</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+
+    <!-- After footer scripts -->
     
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
+
 </html>
