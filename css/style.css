@@ -35,9 +35,9 @@ body {
   font-size: 18px;
   color: #404040;
 }
-p18 {
+p {
   line-height: 1;
-  margin: 0px;
+  margin: 0;
 }
 p a,
 li a {
