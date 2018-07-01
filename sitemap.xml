@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2018-07-01T06:16:25.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-07-01T06:16:16.248Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/27/spring%E6%BA%90%E7%A0%81/spring%E6%95%B4%E5%90%88MyBatis/</loc>
     
     <lastmod>2018-07-01T04:46:30.674Z</lastmod>
@@ -166,20 +180,6 @@
     <loc>http://yoursite.com/2018/04/07/zookeeper%E6%BA%90%E7%A0%81/zookeeper%E5%8D%95%E6%9C%BA%E7%89%88%E6%9C%8D%E5%8A%A1%E7%AB%AF/</loc>
     
     <lastmod>2018-06-29T14:06:18.187Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2018-06-28T12:53:02.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2018-06-28T12:52:42.780Z</lastmod>
     
   </url>
   
