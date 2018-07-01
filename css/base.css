@@ -36,7 +36,7 @@ body {
   color: #404040;
 }
 p {
-  line-height: 1.1;
+  line-height: 1;
   margin: 0px;
 }
 p a,
@@ -257,7 +257,7 @@ hr.small {
 }
 .post-preview > .post-meta {
   color: #808080;
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
   margin-top: 0;
 }
