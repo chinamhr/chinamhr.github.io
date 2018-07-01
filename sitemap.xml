@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E9%9B%86%E5%90%88(2)ConcurrentSkipListMap/</loc>
+    
+    <lastmod>2018-07-01T04:27:32.978Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/04/20/mybatis3%E6%BA%90%E7%A0%81/mybatis%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</loc>
     
     <lastmod>2018-07-01T04:13:27.610Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E9%9B%86%E5%90%88(3)/</loc>
     
     <lastmod>2018-06-29T14:17:16.850Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/05/06/JUC%E6%BA%90%E7%A0%81/JUC%E9%9B%86%E5%90%88(2)ConcurrentSkipListMap/</loc>
-    
-    <lastmod>2018-06-29T14:15:52.154Z</lastmod>
     
   </url>
   
