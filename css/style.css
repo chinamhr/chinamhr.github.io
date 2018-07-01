@@ -49,7 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: 1000;
 }
 a {
   color: #404040;
@@ -80,12 +80,12 @@ hr.small {
   z-index: 3;
 }
 .navbar-custom .navbar-brand {
-  font-weight: 800;
+  font-weight: 1000;
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 1000;
   letter-spacing: 1px;
   text-decoration: none;
 }
@@ -382,7 +382,7 @@ form .row:first-child .floating-label-form-group {
 .btn {
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 1000;
   letter-spacing: 1px;
   border-radius: 0;
   padding: 15px 25px;
@@ -404,7 +404,7 @@ form .row:first-child .floating-label-form-group {
 .pager li > span {
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 1000;
   letter-spacing: 1px;
   padding: 15px 25px;
   background-color: #fff;
