@@ -235,15 +235,16 @@ hr.small {
   margin: 10px 0 5px;
 }
 @media only screen and (min-width: 768px) {
-  .intro-header .post-heading {
-    font-size: 30px;
-    margin: 10px 0 5px;
-  }
   .intro-header .post-heading h1 {
     font-size: 45px;
   }
   .intro-header .post-heading .subheading {
     font-size: 24px;
+  }
+  .intro-header .post-heading h2 {
+    font-size: 36px;
+    margin: 10px 0 5px;
+    font-weight: 400;
   }
 }
 .post-preview > a {
