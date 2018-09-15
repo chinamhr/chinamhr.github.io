@@ -13,6 +13,9 @@
     
 
     
+        <meta name="description" content="一、基础容器基础容器结构图
+1、接口BeanFactory接口：定义了IOC容器基本方法，如getBean方法。AutowireCapableBeanFactory接口：定义了创建bean及自动装配相关方法。HierarchicalBeanFactory接口：定义了容器父子关系相关方法。Listab"/>
+    
 
     <!--Author-->
     
@@ -21,10 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Hexo"/>
+        <meta property="og:title" content="Spring源码IOC及AOP总结"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="一、基础容器基础容器结构图
+1、接口BeanFactory接口：定义了IOC容器基本方法，如getBean方法。AutowireCapableBeanFactory接口：定义了创建bean及自动装配相关方法。HierarchicalBeanFactory接口：定义了容器父子关系相关方法。Listab"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>page - Archives: 2018 - Hexo</title>
+    <title>Spring源码IOC及AOP总结 - Hexo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -153,170 +159,77 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2018</h1>
+                <div class="post-heading">
+                    <h1>Spring源码IOC及AOP总结</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-09-15
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/spring/">spring</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2018/06/27/spring源码/Spring源码IOC容器/">
-        <h1 class="post-title archive">
-            Spring源码IOC容器
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-06-27
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2018/06/27/spring源码/Spring源码AOP/">
-        <h1 class="post-title archive">
-            Spring源码AOP
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-06-27
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="一、基础容器"><a href="#一、基础容器" class="headerlink" title="一、基础容器"></a>一、基础容器</h3><p>基础容器结构图<br><img src="/基础容器结构图.png" alt="avatar"></p>
+<h4 id="1、接口"><a href="#1、接口" class="headerlink" title="1、接口"></a>1、接口</h4><p>BeanFactory接口：定义了IOC容器基本方法，如getBean方法。<br>AutowireCapableBeanFactory接口：定义了创建bean及自动装配相关方法。<br>HierarchicalBeanFactory接口：定义了容器父子关系相关方法。<br>ListableBeanFactory接口：定义了容器中bean的集合相关方法。<br>ConfigurableBeanFactory接口：定义了配置基础容器相关方法，如设置类加载器、添加bean后处理器等。<br>ConfigurableListableBeanFactory接口：继承了以上所有接口，并定义了BeanDefinition的获取、冻结配置、预加载单例等方法。  </p>
+<h4 id="2、实现类"><a href="#2、实现类" class="headerlink" title="2、实现类"></a>2、实现类</h4><p>XmlBeanFactory：最基础的ioc容器，内部拥有一个XmlBeanDefinitionReader，用来读取并解析xml文件，该类继承DefaultListableBeanFactory。<br>DefaultListableBeanFactory：实现了ConfigurableListableBeanFactory接口。实现了BeanDefinitionRegistry接口，提供了BeanDefinition的注册功能。<br>AbstractAutowireCapableBeanFactory抽象类：实现了AutowireCapableBeanFactory接口，该类doCreateBean方法完成了bean的创建及初始化。<br>AbstractBeanFactory抽象类：该类完成bean的作用域管理及循环依赖的检查。<br>DefaultSingletonBeanRegistry：该类完成单例bean的管理。  </p>
+<h3 id="二、扩展容器"><a href="#二、扩展容器" class="headerlink" title="二、扩展容器"></a>二、扩展容器</h3><p>扩展容器结构图<br><img src="/扩展容器结构图.png" alt="avatar"></p>
+<h4 id="1、接口-1"><a href="#1、接口-1" class="headerlink" title="1、接口"></a>1、接口</h4><p>ApplicationContext接口：定义了扩展容器的基本方法，如getApplicationName方法。<br>ConfigurableApplicationContext接口：定义了配置扩展容器相关方法，如添加BeanFactory后处理器、监听器及刷新上下文方法。<br>WebApplicationContext接口：定义了Servlet容器基本属性。<br>ConfigurableWebApplicationContext接口：定义了配置Servlet容器相关方法。    </p>
+<h4 id="2、实现类-1"><a href="#2、实现类-1" class="headerlink" title="2、实现类"></a>2、实现类</h4><p>AnnotationConfigApplicationContext：基于注解的IOC容器拥有ClassPathBeanDefinitionScanner扫描器，加载注解了@Component的类。该类继承GenericApplicationContext。<br>GenericApplicationContext：内部维护了一个DefaultListableBeanFactory。实现BeanDefinitionRegistry接口，提供了BeanDefinition的注册功能。<br>AbstractApplicationContext抽象类：实现了ConfigurableApplicationContext接口，提供了扩展容器配置相关方法，该类refresh方法完成容器上下文刷新。<br>AnnotationConfigServletWebServerApplicationContext：基于注解的ServletWeb的IOC容器，基于注解的IOC容器拥有ClassPathBeanDefinitionScanner扫描器，加载注解了@Component的类。该类继承ServletWebServerApplicationContext。<br>ServletWebServerApplicationContext：该类重写了父类的关于Servlet容器配置的相关方法，Servlet容器在该类中创建。<br>GenericWebApplicationContext：实现了ConfigurableWebApplicationContext接口，提供了Servlet容器配置的相关方法。</p>
+<h3 id="一、AOP"><a href="#一、AOP" class="headerlink" title="一、AOP"></a>一、AOP</h3><p>基于注解的AOP代理对象的创建器AnnotationAwareAspectJAutoProxyCreator的父类AbstractAutoProxyCreator实现了SmartInstantiationAwareBeanPostProcessor后处理器<br>在bean的初始化完成后postProcessAfterInitialization方法会进行代理对象的创建。<br>基于JDK的动态代理，拦截器为JdkDynamicAopProxy，其中拥有一个AdvisedSupport，用来维护方法的拦截器链。<br>基于cglib的动态代理，拦截器为CglibAopProxy，同样通过AdvisedSupport来维护方法的拦截器链。  </p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2018/06/27/spring源码/SpringBoot源码默认注解/">
-        <h1 class="post-title archive">
-            SpringBoot源码默认注解
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-06-27
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2018/06/27/spring源码/SpringBoot源码启动过程/">
-        <h1 class="post-title archive">
-            SpringBoot源码启动过程
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-06-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/05/06/JUC源码/JUC源码集合(3)/">
-        <h1 class="post-title archive">
-            JUC源码集合(3)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-05-06
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/05/06/JUC源码/JUC源码集合(2)ConcurrentSkipListMap/">
-        <h1 class="post-title archive">
-            JUC源码集合(2)ConcurrentSkipListMap
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-05-06
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/05/06/JUC源码/JUC源码集合(1)ConcurrentHashMap/">
-        <h1 class="post-title archive">
-            JUC源码集合(1)ConcurrentHashMap
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-05-06
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/05/06/JUC源码/JUC源码锁/">
-        <h1 class="post-title archive">
-            JUC源码锁
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-05-06
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/05/06/JUC源码/JUC源码线程池(2)ForkJoinPool/">
-        <h1 class="post-title archive">
-            JUC源码线程池(2)ForkJoinPool
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-05-06
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2018/05/06/JUC源码/JUC源码线程池(1)ThreadPoolExecutor/">
-        <h1 class="post-title archive">
-            JUC源码线程池(1)ThreadPoolExecutor
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-05-06
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-        <li class="previous"><a href="/archives/2018/page/2/">&larr;  prev</a></li>
-    
-    
-        <li class="next"><a href="/archives/2018/page/4/">next  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
