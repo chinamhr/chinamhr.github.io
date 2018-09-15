@@ -207,7 +207,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3 id="一、基础容器"><a href="#一、基础容器" class="headerlink" title="一、基础容器"></a>一、基础容器</h3><p>基础容器结构图<br><img src="/基础容器结构图.png" alt="avatar"></p>
+                <h3 id="一、基础容器"><a href="#一、基础容器" class="headerlink" title="一、基础容器"></a>一、基础容器</h3><p>基础容器结构图<br><img src="/_posts/spring源码/基础容器结构图.png" alt="avatar"></p>
 <h4 id="1、接口"><a href="#1、接口" class="headerlink" title="1、接口"></a>1、接口</h4><p>BeanFactory接口：定义了IOC容器基本方法，如getBean方法。<br>AutowireCapableBeanFactory接口：定义了创建bean及自动装配相关方法。<br>HierarchicalBeanFactory接口：定义了容器父子关系相关方法。<br>ListableBeanFactory接口：定义了容器中bean的集合相关方法。<br>ConfigurableBeanFactory接口：定义了配置基础容器相关方法，如设置类加载器、添加bean后处理器等。<br>ConfigurableListableBeanFactory接口：继承了以上所有接口，并定义了BeanDefinition的获取、冻结配置、预加载单例等方法。  </p>
 <h4 id="2、实现类"><a href="#2、实现类" class="headerlink" title="2、实现类"></a>2、实现类</h4><p>XmlBeanFactory：最基础的ioc容器，内部拥有一个XmlBeanDefinitionReader，用来读取并解析xml文件，该类继承DefaultListableBeanFactory。<br>DefaultListableBeanFactory：实现了ConfigurableListableBeanFactory接口。实现了BeanDefinitionRegistry接口，提供了BeanDefinition的注册功能。<br>AbstractAutowireCapableBeanFactory抽象类：实现了AutowireCapableBeanFactory接口，该类doCreateBean方法完成了bean的创建及初始化。<br>AbstractBeanFactory抽象类：该类完成bean的作用域管理及循环依赖的检查。<br>DefaultSingletonBeanRegistry：该类完成单例bean的管理。  </p>
 <h3 id="二、扩展容器"><a href="#二、扩展容器" class="headerlink" title="二、扩展容器"></a>二、扩展容器</h3><p>扩展容器结构图<br><img src="/扩展容器结构图.png" alt="avatar"></p>
