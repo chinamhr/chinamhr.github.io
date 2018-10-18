@@ -40,19 +40,19 @@
   </entry>
   
   <entry>
-    <title>mybatis源码总结</title>
+    <title>MyBatis源码总结</title>
     <link href="http://yoursite.com/2018/10/13/mybatis3%E6%BA%90%E7%A0%81/mybatis%E6%BA%90%E7%A0%81%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/10/13/mybatis3源码/mybatis源码总结/</id>
     <published>2018-10-13T12:35:50.458Z</published>
-    <updated>2018-10-13T12:34:40.575Z</updated>
+    <updated>2018-10-18T09:03:12.917Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="一、mybatis结构"><a href="#一、mybatis结构" class="headerlink" title="一、mybatis结构"></a>一、mybatis结构</h3><p><img src="/2018/10/13/mybatis3源码/mybatis源码总结/mybatis结构图.png" alt="mybatis结构图"></p><h4 id="1、主要类"><a href="#1、主要类" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>XMLConfigBuilder：解析xml文件并将结果存入Configuration中。<br>DefaultSqlSessionFactory：SqlSession工厂，线程共享，负责创建SqlSession。<br>Configuration：存放解析xml配置文件的结果，如sql、resultMap等。<br>ResultMap：存放xml中的resultMap标签的解析结果。<br>MappedStatement：存放xml中的select等sql标签的解析结果。<br>InterceptorChain：拦截器链，为Executor添加拦截器。<br>DefaultSqlSession：用于执行具体的CURD操作，线程私有。<br>Cache接口：二级缓存，存放于MappedStatement中，线程共享。<br>Executor接口：CURD操作执行器，通过StatementHandler执行sql并处理结果集。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="一、MyBatis结构"><a href="#一、MyBatis结构" class="headerlink" title="一、MyBatis结构"></a>一、MyBatis结构</h3><p><img src="/2018/10/13/mybatis3源码/mybatis源码总结/mybatis结构图.png" alt="mybatis结构图"></p><h4 id="1、主要类"><a href="#1、主要类" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>XMLConfigBuilder：解析xml文件并将结果存入Configuration中。<br>DefaultSqlSessionFactory：SqlSession工厂，线程共享，负责创建SqlSession。<br>Configuration：存放解析xml配置文件的结果，如sql、resultMap等。<br>ResultMap：存放xml中的resultMap标签的解析结果。<br>MappedStatement：存放xml中的select等sql标签的解析结果。<br>InterceptorChain：拦截器链，为Executor添加拦截器。<br>DefaultSqlSession：用于执行具体的CURD操作，线程私有。<br>Cache接口：二级缓存，存放于MappedStatement中，线程共享。<br>Executor接口：CURD操作执行器，通过StatementHandler执行sql并处理结果集。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;一、mybatis结构&quot;&gt;&lt;a href=&quot;#一、mybatis结构&quot; class=&quot;headerlink&quot; title=&quot;一、mybatis结构&quot;&gt;&lt;/a&gt;一、mybatis结构&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2018/10/13/mybatis3源码/m
+        &lt;h3 id=&quot;一、MyBatis结构&quot;&gt;&lt;a href=&quot;#一、MyBatis结构&quot; class=&quot;headerlink&quot; title=&quot;一、MyBatis结构&quot;&gt;&lt;/a&gt;一、MyBatis结构&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2018/10/13/mybatis3源码/m
       
     
     </summary>

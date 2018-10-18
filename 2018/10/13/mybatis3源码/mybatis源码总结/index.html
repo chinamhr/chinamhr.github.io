@@ -13,7 +13,7 @@
     
 
     
-        <meta name="description" content="一、mybatis结构
+        <meta name="description" content="一、MyBatis结构
 1、主要类XMLConfigBuilder：解析xml文件并将结果存入Configuration中。DefaultSqlSessionFactory：SqlSession工厂，线程共享，负责创建SqlSession。Configuration：存放解析xml配置文件的结果，如"/>
     
 
@@ -24,12 +24,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="mybatis源码总结"/>
+        <meta property="og:title" content="MyBatis源码总结"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="一、mybatis结构
+        <meta property="og:description" content="一、MyBatis结构
 1、主要类XMLConfigBuilder：解析xml文件并将结果存入Configuration中。DefaultSqlSessionFactory：SqlSession工厂，线程共享，负责创建SqlSession。Configuration：存放解析xml配置文件的结果，如"/>
     
 
@@ -57,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>mybatis源码总结 - Hexo</title>
+    <title>MyBatis源码总结 - Hexo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -167,7 +167,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>mybatis源码总结</h1>
+                    <h1>MyBatis源码总结</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -207,7 +207,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3 id="一、mybatis结构"><a href="#一、mybatis结构" class="headerlink" title="一、mybatis结构"></a>一、mybatis结构</h3><p><img src="/2018/10/13/mybatis3源码/mybatis源码总结/mybatis结构图.png" alt="mybatis结构图"></p>
+                <h3 id="一、MyBatis结构"><a href="#一、MyBatis结构" class="headerlink" title="一、MyBatis结构"></a>一、MyBatis结构</h3><p><img src="/2018/10/13/mybatis3源码/mybatis源码总结/mybatis结构图.png" alt="mybatis结构图"></p>
 <h4 id="1、主要类"><a href="#1、主要类" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>XMLConfigBuilder：解析xml文件并将结果存入Configuration中。<br>DefaultSqlSessionFactory：SqlSession工厂，线程共享，负责创建SqlSession。<br>Configuration：存放解析xml配置文件的结果，如sql、resultMap等。<br>ResultMap：存放xml中的resultMap标签的解析结果。<br>MappedStatement：存放xml中的select等sql标签的解析结果。<br>InterceptorChain：拦截器链，为Executor添加拦截器。<br>DefaultSqlSession：用于执行具体的CURD操作，线程私有。<br>Cache接口：二级缓存，存放于MappedStatement中，线程共享。<br>Executor接口：CURD操作执行器，通过StatementHandler执行sql并处理结果集。</p>
 
 
