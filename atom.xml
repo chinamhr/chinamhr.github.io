@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-20T06:06:05.672Z</updated>
+  <updated>2018-10-20T06:17:14.649Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2018/10/20/JUC%E6%BA%90%E7%A0%81/JUC%E6%BA%90%E7%A0%81%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/10/20/JUC源码/JUC源码总结/</id>
     <published>2018-10-20T06:08:35.662Z</published>
-    <updated>2018-10-20T06:06:05.672Z</updated>
+    <updated>2018-10-20T06:17:14.649Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、JUC锁"><a href="#一、JUC锁" class="headerlink" title="一、JUC锁"></a>一、JUC锁</h3><p><img src="/2018/10/20/JUC源码/JUC源码总结/JUC锁结构图.png" alt="JUC锁结构图"></p><h4 id="1、主要类"><a href="#1、主要类" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>Lock接口：锁根接口，支持语义不同(重入、公平等)的锁规则。<br>ReadWriteLock接口：读写锁接口，JUC包只有一个实现类ReentrantReadWriteLock。<br>AbstractQueuedSynchronizer抽象类：AQS的类，实现了管理等待获取锁的线程的队列。<br>Condition接口：需要和Lock联合使用，用来休眠/唤醒线程。  </p><p>ReentrantLock：独占锁，通过成员变量sync实现。<br>ReentrantReadWriteLock：读写锁，包括子类ReadLock和WriteLock，通过成员变量sync实现，右16位作为共享锁，左16位作为独占锁。  </p><p>CountDownLatch：在完成一组正在其他线程中执行的操作之前，它允许一个或多个线程一直等待，类似共享锁。<br>Semaphore：计数信号量，本质是一个”共享锁”。<br>CyclicBarrier：一组线程互相等待，直到到达某个公共屏障点，通过独占锁实现。  </p><h3 id="二、JUC集合"><a href="#二、JUC集合" class="headerlink" title="二、JUC集合"></a>二、JUC集合</h3><p><img src="/2018/10/20/JUC源码/JUC源码总结/JUC集合结构图.png" alt="JUC集合结构图"></p><h4 id="1、主要类-1"><a href="#1、主要类-1" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>CopyOnWriteArrayList：相当于线程安全的ArrayList，实现了List接口，通过ReentrantLock支持并发。<br>CopyOnWriteArraySet：通过CopyOnWriteArrayList实现。  </p><p>ConcurrentHashMap：通过JDK1.8使用的是数组链表，链表过长则转换为红黑树，操作的时候直接锁数组支持并发。<br>ConcurrentSkipListMap：基于跳跃表，通过CAS方法支持并发。<br>ConcurrentSkipListSet：通过ConcurrentSkipListMap实现。  </p><p>ArrayBlockingQueue：基于数组实现的线程安全的有界的阻塞队列，通过ReentrantLock支持并发。<br>LinkedBlockingQueue：基于单向链表实现的(指定大小)阻塞队列，该队列按 FIFO（先进先出）排序元素。<br>LinkedBlockingDeque：基于双向链表实现的(指定大小)双向并发阻塞队列，该阻塞队列同时支持FIFO和FILO两种操作方式。<br>ConcurrentLinkedQueue：基于单向链表实现的无界队列，该队列按 FIFO（先进先出）排序元素，通过CAS支持并发。<br>ConcurrentLinkedDeque：基于双向链表实现的无界队列，该队列同时支持FIFO和FILO两种操作方式。  </p><h3 id="三、JUC线程池"><a href="#三、JUC线程池" class="headerlink" title="三、JUC线程池"></a>三、JUC线程池</h3><p><img src="/2018/10/20/JUC源码/JUC源码总结/JUC线程池结构图.png" alt="JUC线程池结构图"></p><h4 id="1、主要类-2"><a href="#1、主要类-2" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>Executors：静态工厂类。通过静态工厂方法返回ExecutorService、ScheduledExecutorService、ThreadFactory 和 Callable 等类的对象。<br>Executor接口：定义执行Runnable任务方法。<br>ExecutorService接口：定义提交Runnable任务方法，实现类AbstractExecutorService，提供默认实现。<br>ScheduledExecutorService接口：定义了”延时”和”周期执行”功能，实现类ScheduledThreadPoolExecutor。<br>ThreadPoolExecutor：线程池。<br>RejectedExecutionHandler接口：拒绝策略，实现类有AbortPolicy、CallerRunsPolicy、DiscardOldestPolicy、DiscardPolicy。<br>ForkJoinPool：分解任务线程池。  </p>]]></content>
     
@@ -44,7 +44,7 @@
     <link href="http://yoursite.com/2018/10/18/tomcat%E6%BA%90%E7%A0%81/Tomcat%E6%BA%90%E7%A0%81%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2018/10/18/tomcat源码/Tomcat源码总结/</id>
     <published>2018-10-18T08:57:16.930Z</published>
-    <updated>2018-10-18T08:07:23.471Z</updated>
+    <updated>2018-10-20T06:18:57.042Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、Tomcat结构"><a href="#一、Tomcat结构" class="headerlink" title="一、Tomcat结构"></a>一、Tomcat结构</h3><p><img src="/2018/10/18/tomcat源码/Tomcat源码总结/Tomcat结构图.png" alt="Tomcat结构图"></p><h4 id="1、主要类"><a href="#1、主要类" class="headerlink" title="1、主要类"></a>1、主要类</h4><p>Server接口：表示整个tomcat服务器，一个tomcat只有一个Server，实现类为StandardServer。<br>Service接口：一个Server可以包含多个Service，一个Service负责维护多个Connector和一个Container。  </p><p>Connector：连接器，用于接受请求并将请求封装成Request和Response，然后交给Container进行处理。<br>ProtocolHandler接口：处理请求协议，有不同的实现，Http11NioProtocol使用NioSocket连接、Http11Nio2Protocol使用Aio。<br>NioEndpoint：处理底层Socket的网络连接，实现TCP/IP协议。<br>Executor接口：tomcat处理请求线程池，默认实现ThreadPoolExecutor，最大200个线程。<br>SocketProcessorBase：Socket处理任务线程。<br>Processor接口：Processor用于将Endpoint接收到的Socket封装成Request（这个Request不是ServletRequest），实现类Http11Processor，实现HTTP1.1协议。<br>Adapter接口：Adapter充当适配器，用于将Request转换为ServletRequest交给Container进行具体的处理。  </p><p>Engine接口：表示整个Servlet引擎，一个Engine下面可以包含一个或者多个Host。<br>Host接口：表示一个站点，也可以叫虚拟主机，一个Host可以配置多个Context。<br>Context接口：表示一个应用程序，就是日常开发中的web程序，一个Context可以包含多个Servlet处理不同请求。<br>Wrapper接口：表示一个Servlet。  </p><p>Pipeline接口：处理请求管道，责任链模式。<br>ApplicationFilterChain：过滤器链。  </p><p>Manager接口：session管理接口。  </p><p>Lifecycle接口：生命周期管理接口。<br>LifecycleListener接口：监听器接口，两个重要实现类HostConfig、ContextConfig。<br>HostConfig：部署应用。<br>ContextConfig：处理web应用的配置文件。  </p>]]></content>
     
