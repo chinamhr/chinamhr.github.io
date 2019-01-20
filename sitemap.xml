@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/01/12/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AE%E7%B1%BB%E8%A7%A3%E6%9E%90/</loc>
+    <loc>http://yoursite.com/2019/01/20/spring%E6%BA%90%E7%A0%81/spring%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AE%E7%B1%BB%E8%A7%A3%E6%9E%90/</loc>
     
-    <lastmod>2019-01-12T09:35:08.807Z</lastmod>
+    <lastmod>2019-01-20T12:08:16.471Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/20/spring%E6%BA%90%E7%A0%81/springboot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2019-01-20T11:57:28.489Z</lastmod>
     
   </url>
   
