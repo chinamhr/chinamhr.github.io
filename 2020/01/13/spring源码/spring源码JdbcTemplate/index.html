@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="default">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="demospring配置文件12345678910111213141516171819202122232425&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;  &amp;lt;beans      xmlns=&amp;quot;ht"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="小远"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Spring源码JdbcTemplate"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="demospring配置文件12345678910111213141516171819202122232425&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;  &amp;lt;beans      xmlns=&amp;quot;ht"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Spring源码JdbcTemplate - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hexo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Spring源码JdbcTemplate</h1>
+                    
+                    <h2 class="post-subheading">
+                        JdbcTemplate操作数据库的过程
+                    </h2>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-01-13
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/spring/">spring</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h4 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h4><p>spring配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;  </span><br><span class="line">&lt;beans  </span><br><span class="line">    xmlns=&quot;http://www.springframework.org/schema/beans&quot;  </span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  </span><br><span class="line">    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd&quot;&gt;  </span><br><span class="line">      </span><br><span class="line">    &lt;!-- 1.配置数据源：DriverManagerDataSource --&gt;  </span><br><span class="line">    &lt;bean id=&quot;dataSource&quot; class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt;  </span><br><span class="line">        &lt;property name=&quot;driverClassName&quot; value=&quot;oracle.jdbc.OracleDriver&quot;/&gt;  </span><br><span class="line">        &lt;property name=&quot;url&quot; value=&quot;jdbc:oracle:thin:@localhost:1521:orcl&quot;/&gt;  </span><br><span class="line">        &lt;property name=&quot;username&quot; value=&quot;scott&quot;/&gt;  </span><br><span class="line">        &lt;property name=&quot;password&quot; value=&quot;tiger&quot;/&gt;  </span><br><span class="line">    &lt;/bean&gt;  </span><br><span class="line">    &lt;!--2.配置JdbcTemplate --&gt;  </span><br><span class="line">    &lt;bean id=&quot;jdbcTemplate&quot; class=&quot;org.springframework.jdbc.core.JdbcTemplate&quot;&gt;  </span><br><span class="line">        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;  </span><br><span class="line">    &lt;/bean&gt;  </span><br><span class="line">    &lt;!-- 3.为dao接口注入jdbcTemplate属性 --&gt;  </span><br><span class="line">    &lt;bean id=&quot;userDao&quot; class=&quot;com.wzj.dao.impl.UserDaoImpl&quot;&gt;  </span><br><span class="line">        &lt;property name=&quot;jdbcTemplate&quot; ref=&quot;jdbcTemplate&quot;/&gt;  </span><br><span class="line">    &lt;/bean&gt;  </span><br><span class="line">      </span><br><span class="line">    &lt;!-- 业务层 、Struts2、事务等同往常一样配置--&gt;  </span><br><span class="line">  </span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public class UserDaoImpl implements UserDao&#123;  </span><br><span class="line">    //定义JdbcTemplate属性  </span><br><span class="line">    private JdbcTemplate jdbcTemplate;  </span><br><span class="line">    //省略get、set方法  </span><br><span class="line">    @Override  </span><br><span class="line">    public User selectUserByName(String name) &#123;  </span><br><span class="line">        //定义RowMapper的对象，可以将数据中的每一行数据封装成用户定义的类.  </span><br><span class="line">        //RowMapper是接口，这里创建了一个匿名类并实现了其中的方法  </span><br><span class="line">        RowMapper&lt;User&gt; row=new RowMapper&lt;User&gt;() &#123;  </span><br><span class="line">            @Override  </span><br><span class="line">            public User mapRow(ResultSet rs, int arg1) throws SQLException &#123;  </span><br><span class="line">                User user=new User();  </span><br><span class="line">                user.setUserId(Integer.parseInt(rs.getString(&quot;USERID&quot;)));  </span><br><span class="line">                user.setName(rs.getString(&quot;USERNAME&quot;));  </span><br><span class="line">                user.setPassword(rs.getString(&quot;USERPWD&quot;));  </span><br><span class="line">                return user;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;;   </span><br><span class="line">        String sql=&quot;select * from myuser1 where username=?&quot;;  </span><br><span class="line">        //执行查询  </span><br><span class="line">        User user=jdbcTemplate.queryForObject(sql, new Object[]&#123;name&#125;, row);  </span><br><span class="line">        return user;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public int insert(User user) &#123;  </span><br><span class="line">        String sql=&quot;insert into myuser1 values(user_sequence.nextVal,?,?)&quot;;  </span><br><span class="line">        //执行插入  </span><br><span class="line">        int result=jdbcTemplate.update(sql, new Object[]&#123;user.getName(),user.getPassword()&#125;);  </span><br><span class="line">        return result;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public int delete(int userId) &#123;  </span><br><span class="line">        String sql=&quot;delete from myuser1 where userid=?&quot;;  </span><br><span class="line">        //执行修改  </span><br><span class="line">        int result=jdbcTemplate.update(sql, new Object[]&#123;userId&#125;);  </span><br><span class="line">        return result;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public int update(User user) &#123;  </span><br><span class="line">        String sql=&quot;update myuser1 set username=?,userpwd=? where userid=?&quot;;  </span><br><span class="line">        //执行删除  </span><br><span class="line">        int result=jdbcTemplate.update(sql, new Object[]&#123;user.getName(),user.getPassword(),user.getUserId()&#125;);  </span><br><span class="line">        return result;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="一、select执行过程"><a href="#一、select执行过程" class="headerlink" title="一、select执行过程"></a>一、select执行过程</h3><h4 id="1、JdbcTemplate的queryForObject方法"><a href="#1、JdbcTemplate的queryForObject方法" class="headerlink" title="1、JdbcTemplate的queryForObject方法"></a>1、JdbcTemplate的queryForObject方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public &lt;T&gt; T queryForObject(String sql, Object[] args, RowMapper&lt;T&gt; rowMapper) throws DataAccessException &#123;</span><br><span class="line">    List&lt;T&gt; results = query(sql, args, new RowMapperResultSetExtractor&lt;T&gt;(rowMapper, 1));</span><br><span class="line">    //返回第一对象</span><br><span class="line">    return DataAccessUtils.requiredSingleResult(results);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public &lt;T&gt; T query(String sql, Object[] args, ResultSetExtractor&lt;T&gt; rse) throws DataAccessException &#123;</span><br><span class="line">    return query(sql, newArgPreparedStatementSetter(args), rse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、JdbcTemplate的query方法"><a href="#2、JdbcTemplate的query方法" class="headerlink" title="2、JdbcTemplate的query方法"></a>2、JdbcTemplate的query方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public &lt;T&gt; T query(String sql, PreparedStatementSetter pss, ResultSetExtractor&lt;T&gt; rse) throws DataAccessException &#123;</span><br><span class="line">    return query(new SimplePreparedStatementCreator(sql), pss, rse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">public &lt;T&gt; T query(</span><br><span class="line">        PreparedStatementCreator psc, final PreparedStatementSetter pss, final ResultSetExtractor&lt;T&gt; rse)</span><br><span class="line">        throws DataAccessException &#123;</span><br><span class="line"></span><br><span class="line">    Assert.notNull(rse, &quot;ResultSetExtractor must not be null&quot;);</span><br><span class="line">    logger.debug(&quot;Executing prepared SQL query&quot;);</span><br><span class="line"></span><br><span class="line">    return execute(psc, new PreparedStatementCallback&lt;T&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public T doInPreparedStatement(PreparedStatement ps) throws SQLException &#123;</span><br><span class="line">            ResultSet rs = null;</span><br><span class="line">            try &#123;</span><br><span class="line">                if (pss != null) &#123;</span><br><span class="line">                    //设置参数</span><br><span class="line">                    pss.setValues(ps);</span><br><span class="line">                &#125;</span><br><span class="line">                //执行sql</span><br><span class="line">                rs = ps.executeQuery();</span><br><span class="line">                ResultSet rsToUse = rs;</span><br><span class="line">                //转换器，对数据库clob、 blob数据型进行操作</span><br><span class="line">                if (nativeJdbcExtractor != null) &#123;</span><br><span class="line">                    rsToUse = nativeJdbcExtractor.getNativeResultSet(rs);</span><br><span class="line">                &#125;</span><br><span class="line">                //解析结果集</span><br><span class="line">                return rse.extractData(rsToUse);</span><br><span class="line">            &#125;</span><br><span class="line">            finally &#123;</span><br><span class="line">                JdbcUtils.closeResultSet(rs);</span><br><span class="line">                if (pss instanceof ParameterDisposer) &#123;</span><br><span class="line">                    ((ParameterDisposer) pss).cleanupParameters();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、JdbcTemplate的execute方法"><a href="#3、JdbcTemplate的execute方法" class="headerlink" title="3、JdbcTemplate的execute方法"></a>3、JdbcTemplate的execute方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public &lt;T&gt; T execute(PreparedStatementCreator psc, PreparedStatementCallback&lt;T&gt; action)</span><br><span class="line">        throws DataAccessException &#123;</span><br><span class="line"></span><br><span class="line">    Assert.notNull(psc, &quot;PreparedStatementCreator must not be null&quot;);</span><br><span class="line">    Assert.notNull(action, &quot;Callback object must not be null&quot;);</span><br><span class="line">    if (logger.isDebugEnabled()) &#123;</span><br><span class="line">        String sql = getSql(psc);</span><br><span class="line">        logger.debug(&quot;Executing prepared SQL statement&quot; + (sql != null ? &quot; [&quot; + sql + &quot;]&quot; : &quot;&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    //获取连接</span><br><span class="line">    Connection con = DataSourceUtils.getConnection(getDataSource());</span><br><span class="line">    PreparedStatement ps = null;</span><br><span class="line">    try &#123;</span><br><span class="line">        Connection conToUse = con;</span><br><span class="line">        if (this.nativeJdbcExtractor != null &amp;&amp;</span><br><span class="line">                this.nativeJdbcExtractor.isNativeConnectionNecessaryForNativePreparedStatements()) &#123;</span><br><span class="line">            //获取原始的JDBC连接</span><br><span class="line">            conToUse = this.nativeJdbcExtractor.getNativeConnection(con);</span><br><span class="line">        &#125;</span><br><span class="line">        //创建一个PreparedStatement</span><br><span class="line">        ps = psc.createPreparedStatement(conToUse);</span><br><span class="line">        //设置默认查询边界及超时时间</span><br><span class="line">        applyStatementSettings(ps);</span><br><span class="line">        PreparedStatement psToUse = ps;</span><br><span class="line">        if (this.nativeJdbcExtractor != null) &#123;</span><br><span class="line">            //获取原始的JDBC的PreparedStatement</span><br><span class="line">            psToUse = this.nativeJdbcExtractor.getNativePreparedStatement(ps);</span><br><span class="line">        &#125;</span><br><span class="line">        //执行sql</span><br><span class="line">        T result = action.doInPreparedStatement(psToUse);</span><br><span class="line">        //处理警告,如数据截断异常</span><br><span class="line">        handleWarnings(ps);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    catch (SQLException ex) &#123;</span><br><span class="line">        // Release Connection early, to avoid potential connection pool deadlock</span><br><span class="line">        // in the case when the exception translator hasn&apos;t been initialized yet.</span><br><span class="line">        if (psc instanceof ParameterDisposer) &#123;</span><br><span class="line">            ((ParameterDisposer) psc).cleanupParameters();</span><br><span class="line">        &#125;</span><br><span class="line">        String sql = getSql(psc);</span><br><span class="line">        psc = null;</span><br><span class="line">        JdbcUtils.closeStatement(ps);</span><br><span class="line">        ps = null;</span><br><span class="line">        DataSourceUtils.releaseConnection(con, getDataSource());</span><br><span class="line">        con = null;</span><br><span class="line">        throw getExceptionTranslator().translate(&quot;PreparedStatementCallback&quot;, sql, ex);</span><br><span class="line">    &#125;</span><br><span class="line">    finally &#123;</span><br><span class="line">        if (psc instanceof ParameterDisposer) &#123;</span><br><span class="line">            ((ParameterDisposer) psc).cleanupParameters();</span><br><span class="line">        &#125;</span><br><span class="line">        JdbcUtils.closeStatement(ps);</span><br><span class="line">        DataSourceUtils.releaseConnection(con, getDataSource());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、DataSourceUtils的getConnection方法"><a href="#4、DataSourceUtils的getConnection方法" class="headerlink" title="4、DataSourceUtils的getConnection方法"></a>4、DataSourceUtils的getConnection方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static Connection getConnection(DataSource dataSource) throws CannotGetJdbcConnectionException &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        //获取连接</span><br><span class="line">        return doGetConnection(dataSource);</span><br><span class="line">    &#125;</span><br><span class="line">    catch (SQLException ex) &#123;</span><br><span class="line">        throw new CannotGetJdbcConnectionException(&quot;Could not get JDBC Connection&quot;, ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5、DataSourceUtils的doGetConnection方法"><a href="#5、DataSourceUtils的doGetConnection方法" class="headerlink" title="5、DataSourceUtils的doGetConnection方法"></a>5、DataSourceUtils的doGetConnection方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">public static Connection doGetConnection(DataSource dataSource) throws SQLException &#123;</span><br><span class="line">    Assert.notNull(dataSource, &quot;No DataSource specified&quot;);</span><br><span class="line">    //获取本线程Connection容器</span><br><span class="line">    ConnectionHolder conHolder = (ConnectionHolder) TransactionSynchronizationManager.getResource(dataSource);</span><br><span class="line">    //本线程是否激活事务</span><br><span class="line">    if (conHolder != null &amp;&amp; (conHolder.hasConnection() || conHolder.isSynchronizedWithTransaction())) &#123;</span><br><span class="line">        //当前获取次数加一</span><br><span class="line">        conHolder.requested();</span><br><span class="line">        //没有连接获取新连接</span><br><span class="line">        if (!conHolder.hasConnection()) &#123;</span><br><span class="line">            logger.debug(&quot;Fetching resumed JDBC Connection from DataSource&quot;);</span><br><span class="line">            conHolder.setConnection(dataSource.getConnection());</span><br><span class="line">        &#125;</span><br><span class="line">        //获取容器中的连接，同一事务中使用同一个连接</span><br><span class="line">        return conHolder.getConnection();</span><br><span class="line">    &#125;</span><br><span class="line">    // Else we either got no holder or an empty thread-bound holder here.</span><br><span class="line"></span><br><span class="line">    logger.debug(&quot;Fetching JDBC Connection from DataSource&quot;);</span><br><span class="line">    //获取连接</span><br><span class="line">    Connection con = dataSource.getConnection();</span><br><span class="line">    //事务已开启</span><br><span class="line">    if (TransactionSynchronizationManager.isSynchronizationActive()) &#123;</span><br><span class="line">        logger.debug(&quot;Registering transaction synchronization for JDBC Connection&quot;);</span><br><span class="line">        // Use same Connection for further JDBC actions within the transaction.</span><br><span class="line">        // Thread-bound object will get removed by synchronization at transaction completion.</span><br><span class="line">        ConnectionHolder holderToUse = conHolder;</span><br><span class="line">        if (holderToUse == null) &#123;</span><br><span class="line">            holderToUse = new ConnectionHolder(con);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            holderToUse.setConnection(con);</span><br><span class="line">        &#125;</span><br><span class="line">        holderToUse.requested();</span><br><span class="line">        //添加回调函数释放资源</span><br><span class="line">        TransactionSynchronizationManager.registerSynchronization(</span><br><span class="line">                new ConnectionSynchronization(holderToUse, dataSource));</span><br><span class="line">        //设置该连接已被事务获取</span><br><span class="line">        holderToUse.setSynchronizedWithTransaction(true);</span><br><span class="line">        //新增的连接容器</span><br><span class="line">        if (holderToUse != conHolder) &#123;</span><br><span class="line">            //连接容器加入本线程变量</span><br><span class="line">            TransactionSynchronizationManager.bindResource(dataSource, holderToUse);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return con;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6、接（一、3）DataSourceUtils的releaseConnection方法"><a href="#6、接（一、3）DataSourceUtils的releaseConnection方法" class="headerlink" title="6、接（一、3）DataSourceUtils的releaseConnection方法"></a>6、接（一、3）DataSourceUtils的releaseConnection方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static void releaseConnection(Connection con, DataSource dataSource) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        //关闭连接</span><br><span class="line">        doReleaseConnection(con, dataSource);</span><br><span class="line">    &#125;</span><br><span class="line">    catch (SQLException ex) &#123;</span><br><span class="line">        logger.debug(&quot;Could not close JDBC Connection&quot;, ex);</span><br><span class="line">    &#125;</span><br><span class="line">    catch (Throwable ex) &#123;</span><br><span class="line">        logger.debug(&quot;Unexpected exception on closing JDBC Connection&quot;, ex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7、DataSourceUtils的doReleaseConnection方法"><a href="#7、DataSourceUtils的doReleaseConnection方法" class="headerlink" title="7、DataSourceUtils的doReleaseConnection方法"></a>7、DataSourceUtils的doReleaseConnection方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void doReleaseConnection(Connection con, DataSource dataSource) throws SQLException &#123;</span><br><span class="line">    if (con == null) &#123;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    if (dataSource != null) &#123;</span><br><span class="line">        //当前线程存在事务，该线程目前要用同一个连接，释放则获取次数减一</span><br><span class="line">        ConnectionHolder conHolder = (ConnectionHolder) TransactionSynchronizationManager.getResource(dataSource);</span><br><span class="line">        if (conHolder != null &amp;&amp; connectionEquals(conHolder, con)) &#123;</span><br><span class="line">            // It&apos;s the transactional Connection: Don&apos;t close it.</span><br><span class="line">            conHolder.released();</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    logger.debug(&quot;Returning JDBC Connection to DataSource&quot;);</span><br><span class="line">    //关闭连接</span><br><span class="line">    doCloseConnection(con, dataSource);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6、接（一、2）ArgumentPreparedStatementSetter的setValues方法"><a href="#6、接（一、2）ArgumentPreparedStatementSetter的setValues方法" class="headerlink" title="6、接（一、2）ArgumentPreparedStatementSetter的setValues方法"></a>6、接（一、2）ArgumentPreparedStatementSetter的setValues方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void setValues(PreparedStatement ps) throws SQLException &#123;</span><br><span class="line">    if (this.args != null) &#123;</span><br><span class="line">        for (int i = 0; i &lt; this.args.length; i++) &#123;</span><br><span class="line">            Object arg = this.args[i];</span><br><span class="line">            //设置参数</span><br><span class="line">            doSetValue(ps, i + 1, arg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7、ArgumentPreparedStatementSetter的doSetValue方法"><a href="#7、ArgumentPreparedStatementSetter的doSetValue方法" class="headerlink" title="7、ArgumentPreparedStatementSetter的doSetValue方法"></a>7、ArgumentPreparedStatementSetter的doSetValue方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">protected void doSetValue(PreparedStatement ps, int parameterPosition, Object argValue) throws SQLException &#123;</span><br><span class="line">    //设置参数</span><br><span class="line">    if (argValue instanceof SqlParameterValue) &#123;</span><br><span class="line">        SqlParameterValue paramValue = (SqlParameterValue) argValue;</span><br><span class="line">        StatementCreatorUtils.setParameterValue(ps, parameterPosition, paramValue, paramValue.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        StatementCreatorUtils.setParameterValue(ps, parameterPosition, SqlTypeValue.TYPE_UNKNOWN, argValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="8、接（一、2）RowMapperResultSetExtractor的extractData方法"><a href="#8、接（一、2）RowMapperResultSetExtractor的extractData方法" class="headerlink" title="8、接（一、2）RowMapperResultSetExtractor的extractData方法"></a>8、接（一、2）RowMapperResultSetExtractor的extractData方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public List&lt;T&gt; extractData(ResultSet rs) throws SQLException &#123;</span><br><span class="line">    List&lt;T&gt; results = (this.rowsExpected &gt; 0 ? new ArrayList&lt;T&gt;(this.rowsExpected) : new ArrayList&lt;T&gt;());</span><br><span class="line">    int rowNum = 0;</span><br><span class="line">    while (rs.next()) &#123;</span><br><span class="line">        //解析结果</span><br><span class="line">        results.add(this.rowMapper.mapRow(rs, rowNum++));</span><br><span class="line">    &#125;</span><br><span class="line">    return results;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9、RowMapper的mapRow方法"><a href="#9、RowMapper的mapRow方法" class="headerlink" title="9、RowMapper的mapRow方法"></a>9、RowMapper的mapRow方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Override  </span><br><span class="line">public User mapRow(ResultSet rs, int arg1) throws SQLException &#123;  </span><br><span class="line">    User user=new User();  </span><br><span class="line">    user.setUserId(Integer.parseInt(rs.getString(&quot;USERID&quot;)));  </span><br><span class="line">    user.setName(rs.getString(&quot;USERNAME&quot;));  </span><br><span class="line">    user.setPassword(rs.getString(&quot;USERPWD&quot;));  </span><br><span class="line">    return user;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、update执行过程"><a href="#二、update执行过程" class="headerlink" title="二、update执行过程"></a>二、update执行过程</h3><h4 id="1、JdbcTemplate的update方法"><a href="#1、JdbcTemplate的update方法" class="headerlink" title="1、JdbcTemplate的update方法"></a>1、JdbcTemplate的update方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public int update(String sql, Object... args) throws DataAccessException &#123;</span><br><span class="line">    return update(sql, newArgPreparedStatementSetter(args));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public int update(String sql, PreparedStatementSetter pss) throws DataAccessException &#123;</span><br><span class="line">    return update(new SimplePreparedStatementCreator(sql), pss);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">protected int update(final PreparedStatementCreator psc, final PreparedStatementSetter pss)</span><br><span class="line">        throws DataAccessException &#123;</span><br><span class="line"></span><br><span class="line">    logger.debug(&quot;Executing prepared SQL update&quot;);</span><br><span class="line">    return execute(psc, new PreparedStatementCallback&lt;Integer&gt;() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public Integer doInPreparedStatement(PreparedStatement ps) throws SQLException &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                if (pss != null) &#123;</span><br><span class="line">                    //设置参数</span><br><span class="line">                    pss.setValues(ps);</span><br><span class="line">                &#125;</span><br><span class="line">                //执行sql</span><br><span class="line">                int rows = ps.executeUpdate();</span><br><span class="line">                if (logger.isDebugEnabled()) &#123;</span><br><span class="line">                    logger.debug(&quot;SQL update affected &quot; + rows + &quot; rows&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">                return rows;</span><br><span class="line">            &#125;</span><br><span class="line">            finally &#123;</span><br><span class="line">                if (pss instanceof ParameterDisposer) &#123;</span><br><span class="line">                    ((ParameterDisposer) pss).cleanupParameters();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、JdbcTemplate的execute方法"><a href="#2、JdbcTemplate的execute方法" class="headerlink" title="2、JdbcTemplate的execute方法"></a>2、JdbcTemplate的execute方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public &lt;T&gt; T execute(PreparedStatementCreator psc, PreparedStatementCallback&lt;T&gt; action)</span><br><span class="line">        throws DataAccessException &#123;</span><br><span class="line"></span><br><span class="line">    Assert.notNull(psc, &quot;PreparedStatementCreator must not be null&quot;);</span><br><span class="line">    Assert.notNull(action, &quot;Callback object must not be null&quot;);</span><br><span class="line">    if (logger.isDebugEnabled()) &#123;</span><br><span class="line">        String sql = getSql(psc);</span><br><span class="line">        logger.debug(&quot;Executing prepared SQL statement&quot; + (sql != null ? &quot; [&quot; + sql + &quot;]&quot; : &quot;&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    //获取连接</span><br><span class="line">    Connection con = DataSourceUtils.getConnection(getDataSource());</span><br><span class="line">    PreparedStatement ps = null;</span><br><span class="line">    try &#123;</span><br><span class="line">        Connection conToUse = con;</span><br><span class="line">        if (this.nativeJdbcExtractor != null &amp;&amp;</span><br><span class="line">                this.nativeJdbcExtractor.isNativeConnectionNecessaryForNativePreparedStatements()) &#123;</span><br><span class="line">            conToUse = this.nativeJdbcExtractor.getNativeConnection(con);</span><br><span class="line">        &#125;</span><br><span class="line">        //创建PreparedStatement</span><br><span class="line">        ps = psc.createPreparedStatement(conToUse);</span><br><span class="line">        applyStatementSettings(ps);</span><br><span class="line">        PreparedStatement psToUse = ps;</span><br><span class="line">        if (this.nativeJdbcExtractor != null) &#123;</span><br><span class="line">            psToUse = this.nativeJdbcExtractor.getNativePreparedStatement(ps);</span><br><span class="line">        &#125;</span><br><span class="line">        //执行sql</span><br><span class="line">        T result = action.doInPreparedStatement(psToUse);</span><br><span class="line">        handleWarnings(ps);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    catch (SQLException ex) &#123;</span><br><span class="line">        // Release Connection early, to avoid potential connection pool deadlock</span><br><span class="line">        // in the case when the exception translator hasn&apos;t been initialized yet.</span><br><span class="line">        if (psc instanceof ParameterDisposer) &#123;</span><br><span class="line">            ((ParameterDisposer) psc).cleanupParameters();</span><br><span class="line">        &#125;</span><br><span class="line">        String sql = getSql(psc);</span><br><span class="line">        psc = null;</span><br><span class="line">        JdbcUtils.closeStatement(ps);</span><br><span class="line">        ps = null;</span><br><span class="line">        DataSourceUtils.releaseConnection(con, getDataSource());</span><br><span class="line">        con = null;</span><br><span class="line">        throw getExceptionTranslator().translate(&quot;PreparedStatementCallback&quot;, sql, ex);</span><br><span class="line">    &#125;</span><br><span class="line">    finally &#123;</span><br><span class="line">        if (psc instanceof ParameterDisposer) &#123;</span><br><span class="line">            ((ParameterDisposer) psc).cleanupParameters();</span><br><span class="line">        &#125;</span><br><span class="line">        JdbcUtils.closeStatement(ps);</span><br><span class="line">        DataSourceUtils.releaseConnection(con, getDataSource());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/chinamhr/chinamhr.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 小远<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
