@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="default">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="1、引入自动配置通过EnableAutoConfiguration注解引入EnableAutoConfigurationImportSelector实现自动配置，EnableAutoConfigurationImportSelector的父类AutoConfigurationImportSelect"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="小远"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="SpringBoot自动配置源码"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1、引入自动配置通过EnableAutoConfiguration注解引入EnableAutoConfigurationImportSelector实现自动配置，EnableAutoConfigurationImportSelector的父类AutoConfigurationImportSelect"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>SpringBoot自动配置源码 - Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hexo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>SpringBoot自动配置源码</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-01-16
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/spring/">spring</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="1、引入自动配置"><a href="#1、引入自动配置" class="headerlink" title="1、引入自动配置"></a>1、引入自动配置</h3><p>通过EnableAutoConfiguration注解引入EnableAutoConfigurationImportSelector实现自动配置，<br>EnableAutoConfigurationImportSelector的父类AutoConfigurationImportSelector的selectImports方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public String[] selectImports(AnnotationMetadata annotationMetadata) &#123;</span><br><span class="line">       if (!this.isEnabled(annotationMetadata)) &#123;</span><br><span class="line">           return NO_IMPORTS;</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">           try &#123;</span><br><span class="line">               //获取注解元数据</span><br><span class="line">			AutoConfigurationMetadata autoConfigurationMetadata = AutoConfigurationMetadataLoader.loadMetadata(this.beanClassLoader);</span><br><span class="line">               //获取注解属性</span><br><span class="line">			AnnotationAttributes attributes = this.getAttributes(annotationMetadata);</span><br><span class="line">			//从META-INF/spring.factories中获取自动注解类 </span><br><span class="line">               List&lt;String&gt; configurations = this.getCandidateConfigurations(annotationMetadata, attributes);</span><br><span class="line">               //去除重复</span><br><span class="line">			configurations = this.removeDuplicates(configurations);</span><br><span class="line">			//排序</span><br><span class="line">               configurations = this.sort(configurations, autoConfigurationMetadata);</span><br><span class="line">			//获取注解中需要排除的</span><br><span class="line">               Set&lt;String&gt; exclusions = this.getExclusions(annotationMetadata, attributes);</span><br><span class="line">               this.checkExcludedClasses(configurations, exclusions);</span><br><span class="line">			//排除不需要的</span><br><span class="line">               configurations.removeAll(exclusions);</span><br><span class="line">			//根据条件注解筛选</span><br><span class="line">               configurations = this.filter(configurations, autoConfigurationMetadata);</span><br><span class="line">               this.fireAutoConfigurationImportEvents(configurations, exclusions);</span><br><span class="line">			//返回最终的配之类</span><br><span class="line">               return (String[])configurations.toArray(new String[configurations.size()]);</span><br><span class="line">           &#125; catch (IOException var6) &#123;</span><br><span class="line">               throw new IllegalStateException(var6);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>springboot自动配置包下默认的自动配置类在文件META-INF/spring.factories下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"># Auto Configure</span><br><span class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration=\</span><br><span class="line">org.springframework.boot.autoconfigure.admin.SpringApplicationAdminJmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.aop.AopAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.cloud.CloudAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.couchbase.CouchbaseAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.dao.PersistenceExceptionTranslationAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.cassandra.CassandraRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.couchbase.CouchbaseDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.couchbase.CouchbaseRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.ldap.LdapDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.ldap.LdapRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.neo4j.Neo4jDataAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.neo4j.Neo4jRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.solr.SolrRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.rest.RepositoryRestMvcAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.elasticsearch.jest.JestAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.hazelcast.HazelcastAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.hazelcast.HazelcastJpaDependencyAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.JndiDataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.JndiConnectionFactoryAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.activemq.ActiveMQAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jersey.JerseyAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.ldap.LdapAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mail.MailSenderValidatorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mobile.DeviceResolverAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mobile.DeviceDelegatingViewResolverAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mobile.SitePreferenceAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.reactor.ReactorAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.SecurityFilterAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.FallbackWebSecurityAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.security.oauth2.OAuth2AutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.sendgrid.SendGridAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.session.SessionAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.social.SocialWebAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.social.FacebookAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.social.LinkedInAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.social.TwitterAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.HttpEncodingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.HttpMessageConvertersAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.WebClientAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.websocket.WebSocketMessagingAutoConfiguration,\</span><br><span class="line">org.springframework.boot.autoconfigure.webservices.WebServicesAutoConfiguration</span><br></pre></td></tr></table></figure></p>
+<p>filter方法根据条件注解筛选<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">private List&lt;String&gt; filter(List&lt;String&gt; configurations, AutoConfigurationMetadata autoConfigurationMetadata) &#123;</span><br><span class="line">       long startTime = System.nanoTime();</span><br><span class="line">       String[] candidates = (String[])configurations.toArray(new String[configurations.size()]);</span><br><span class="line">       boolean[] skip = new boolean[candidates.length];</span><br><span class="line">       boolean skipped = false;</span><br><span class="line">	//获取条件处理类</span><br><span class="line">       Iterator var8 = this.getAutoConfigurationImportFilters().iterator();</span><br><span class="line"></span><br><span class="line">       while(var8.hasNext()) &#123;</span><br><span class="line">           AutoConfigurationImportFilter filter = (AutoConfigurationImportFilter)var8.next();</span><br><span class="line">           this.invokeAwareMethods(filter);</span><br><span class="line">		//根据条件注解判断是否匹配</span><br><span class="line">           boolean[] match = filter.match(candidates, autoConfigurationMetadata);</span><br><span class="line">		//根据是否匹配确定该配置类是否需要</span><br><span class="line">           for(int i = 0; i &lt; match.length; ++i) &#123;</span><br><span class="line">               if (!match[i]) &#123;</span><br><span class="line">                   skip[i] = true;</span><br><span class="line">                   skipped = true;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       if (!skipped) &#123;</span><br><span class="line">           return configurations;</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">           List&lt;String&gt; result = new ArrayList(candidates.length);</span><br><span class="line"></span><br><span class="line">           int numberFiltered;</span><br><span class="line">		//跳过不需要的配置类</span><br><span class="line">           for(numberFiltered = 0; numberFiltered &lt; candidates.length; ++numberFiltered) &#123;</span><br><span class="line">               if (!skip[numberFiltered]) &#123;</span><br><span class="line">                   result.add(candidates[numberFiltered]);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">		</span><br><span class="line">           return new ArrayList(result);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>AutoConfigurationImportFilter的实现类为SpringBootCondition，SpringBootCondition为抽象类又有实现类如OnClassCondition<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public boolean[] match(String[] autoConfigurationClasses, AutoConfigurationMetadata autoConfigurationMetadata) &#123;</span><br><span class="line">       ConditionEvaluationReport report = this.getConditionEvaluationReport();</span><br><span class="line">       //条件判断结果</span><br><span class="line">	ConditionOutcome[] outcomes = this.getOutcomes(autoConfigurationClasses, autoConfigurationMetadata);</span><br><span class="line">       boolean[] match = new boolean[outcomes.length];</span><br><span class="line">	//结果赋值给match数组</span><br><span class="line">       for(int i = 0; i &lt; outcomes.length; ++i) &#123;</span><br><span class="line">           match[i] = outcomes[i] == null || outcomes[i].isMatch();</span><br><span class="line">           if (!match[i] &amp;&amp; outcomes[i] != null) &#123;</span><br><span class="line">               this.logOutcome(autoConfigurationClasses[i], outcomes[i]);</span><br><span class="line">               if (report != null) &#123;</span><br><span class="line">                   report.recordConditionEvaluation(autoConfigurationClasses[i], this, outcomes[i]);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       return match;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>getOutcomes方法获取配置类是否满足条件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">private ConditionOutcome[] getOutcomes(String[] autoConfigurationClasses, AutoConfigurationMetadata autoConfigurationMetadata) &#123;</span><br><span class="line">       //将自动配置类分为两组异步处理</span><br><span class="line">	int split = autoConfigurationClasses.length / 2;</span><br><span class="line">       OnClassCondition.OutcomesResolver firstHalfResolver = this.createOutcomesResolver(autoConfigurationClasses, 0, split, autoConfigurationMetadata);</span><br><span class="line">       OnClassCondition.OutcomesResolver secondHalfResolver = new OnClassCondition.StandardOutcomesResolver(autoConfigurationClasses, split, autoConfigurationClasses.length, autoConfigurationMetadata, this.beanClassLoader);</span><br><span class="line">       //处理配置类</span><br><span class="line">	ConditionOutcome[] secondHalf = secondHalfResolver.resolveOutcomes();</span><br><span class="line">       ConditionOutcome[] firstHalf = firstHalfResolver.resolveOutcomes();</span><br><span class="line">       ConditionOutcome[] outcomes = new ConditionOutcome[autoConfigurationClasses.length];</span><br><span class="line">       System.arraycopy(firstHalf, 0, outcomes, 0, firstHalf.length);</span><br><span class="line">       System.arraycopy(secondHalf, 0, outcomes, split, secondHalf.length);</span><br><span class="line">       return outcomes;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private ConditionOutcome[] getOutcomes(String[] autoConfigurationClasses, int start, int end, AutoConfigurationMetadata autoConfigurationMetadata) &#123;</span><br><span class="line">           ConditionOutcome[] outcomes = new ConditionOutcome[end - start];</span><br><span class="line">		//循环判断配置类条件</span><br><span class="line">           for(int i = start; i &lt; end; ++i) &#123;</span><br><span class="line">               String autoConfigurationClass = autoConfigurationClasses[i];</span><br><span class="line">			//获取ConditionalOnClass注解所需要的类</span><br><span class="line">               Set&lt;String&gt; candidates = autoConfigurationMetadata.getSet(autoConfigurationClass, &quot;ConditionalOnClass&quot;);</span><br><span class="line">               if (candidates != null) &#123;</span><br><span class="line">                   outcomes[i - start] = this.getOutcome(candidates);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           return outcomes;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+<p>获取某个配置匹配的结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">private ConditionOutcome getOutcome(Set&lt;String&gt; candidates) &#123;</span><br><span class="line">	try &#123;</span><br><span class="line">		//判断是否有缺失</span><br><span class="line">		List&lt;String&gt; missing = OnClassCondition.this.getMatches(candidates, OnClassCondition.MatchType.MISSING, this.beanClassLoader);</span><br><span class="line">		if (!missing.isEmpty()) &#123;</span><br><span class="line">			//返回不匹配</span><br><span class="line">			return ConditionOutcome.noMatch(ConditionMessage.forCondition(ConditionalOnClass.class, new Object[0]).didNotFind(&quot;required class&quot;, &quot;required classes&quot;).items(Style.QUOTE, missing));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; catch (Exception var3) &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>getMatches方法中对条件注解中要求的类分别判断是否存在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MISSING &#123;</span><br><span class="line">	public boolean matches(String className, ClassLoader classLoader) &#123;</span><br><span class="line">		//isPresent方法中尝试加在所需类 不抛异常则认为存在</span><br><span class="line">		return !OnClassCondition.MatchType.isPresent(className, classLoader);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/chinamhr/chinamhr.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 小远<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
